@@ -22,6 +22,9 @@ const Navigation = () => {
               <Button variant="nav" asChild>
                 <a href="#case-study">Case Study</a>
               </Button>
+              <Button variant="nav" asChild>
+                <a href="#blogs">Blogs</a>
+              </Button>
             </div>
           </div>
           
