@@ -1,5 +1,5 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Rocket, Server, Settings } from "lucide-react";
+import { Rocket, Server, Settings, Brain } from "lucide-react";
 
 const Services = () => {
   const services = [
@@ -35,6 +35,17 @@ const Services = () => {
         "Monitoring and alerting",
         "Automated scaling solutions"
       ]
+    },
+    {
+      icon: <Brain className="w-8 h-8 text-primary" />,
+      title: "AI Solutions",
+      description: "Integrate cutting-edge AI and machine learning capabilities to automate processes and unlock intelligent insights.",
+      benefits: [
+        "Custom AI model development",
+        "Natural language processing",
+        "Computer vision solutions",
+        "Intelligent automation workflows"
+      ]
     }
   ];
 
@@ -52,7 +63,7 @@ const Services = () => {
         </div>
         
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => (
             <Card 
               key={index} 
