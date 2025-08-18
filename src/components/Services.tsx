@@ -4,13 +4,23 @@ import { Rocket, Server, Settings, Brain } from "lucide-react";
 const Services = () => {
   const services = [
     {
+      icon: <Brain className="w-8 h-8 text-primary" />,
+      title: "AI Solutions",
+      description: "Integrate cutting-edge AI and machine learning capabilities to automate processes and unlock intelligent insights.",
+      benefits: [
+        "Custom AI agents tailored to your workflows",
+        "Integrations with leading AI tools",
+        "AI automation that cuts costs, reduces manual effort & improves efficiency",
+      ]
+    },
+    {
       icon: <Rocket className="w-8 h-8 text-primary" />,
       title: "MVP Development",
       description: "Transform your idea into a market-ready product. We build scalable MVPs that validate your concept and attract investors.",
       benefits: [
         "Rapid prototyping that saves time & costs",
-        ,"User-focused design for real customer adoption"
-        ,"Agile development for faster market entry"
+        "User-focused design for real customer adoption",
+        "Agile development for faster market entry"
       ]
     },
     {
@@ -32,16 +42,6 @@ const Services = () => {
         "Cloud infrastructure management",
         "Monitoring and alerting",
         "Automated scaling solutions"
-      ]
-    },
-    {
-      icon: <Brain className="w-8 h-8 text-primary" />,
-      title: "AI Solutions",
-      description: "Integrate cutting-edge AI and machine learning capabilities to automate processes and unlock intelligent insights.",
-      benefits: [
-        "Custom AI agents tailored to your workflows",
-        "Integrations with leading AI tools",
-        "AI automation that cuts costs, reduces manual effort & improves efficiency",
       ]
     }
   ];
