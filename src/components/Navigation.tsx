@@ -31,7 +31,7 @@ const Navigation = () => {
           {/* CTA Button */}
           <div className="hidden md:block">
             <Button variant="cta" asChild>
-              
+              <a href="#contact">Get Started</a>
             </Button>
           </div>
           
