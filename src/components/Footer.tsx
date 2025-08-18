@@ -58,7 +58,7 @@ const Footer = () => {
         <div className="border-t pt-8 flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0">
             <h2 className="text-lg font-bold text-foreground">
-              supertech<span className="text-primary">®</span>
+              supertech
             </h2>
             <p className="text-sm text-muted-foreground mt-1">
               Building the future, one product at a time.

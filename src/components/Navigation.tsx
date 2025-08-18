@@ -6,7 +6,7 @@ const Navigation = () => {
           {/* Company Name */}
           <div className="flex-shrink-0">
             <h1 className="text-xl font-bold text-foreground">
-              supertech<span className="text-primary">®</span>
+              supertech
             </h1>
           </div>
           
