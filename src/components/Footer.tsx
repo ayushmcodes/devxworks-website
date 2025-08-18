@@ -10,7 +10,7 @@ const Footer = () => {
       ]
     },
     {
-      title: "Company",
+      title: "Quick Links",
       links: [
         { name: "About Us", href: "#about" },
         { name: "Case Studies", href: "#case-study" },
@@ -19,19 +19,9 @@ const Footer = () => {
       ]
     },
     {
-      title: "Resources",
-      links: [
-        { name: "Documentation", href: "#" },
-        { name: "Support", href: "#" },
-        { name: "Privacy Policy", href: "#" },
-        { name: "Terms of Service", href: "#" },
-      ]
-    },
-    {
       title: "Contact",
       links: [
         { name: "hello@supertech.dev", href: "mailto:hello@supertech.dev" },
-        { name: "+1 (555) 123-4567", href: "tel:+15551234567" },
         { name: "LinkedIn", href: "#" },
         { name: "Twitter", href: "#" },
       ]
