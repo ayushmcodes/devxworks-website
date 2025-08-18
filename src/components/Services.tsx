@@ -8,10 +8,9 @@ const Services = () => {
       title: "MVP Development",
       description: "Transform your idea into a market-ready product. We build scalable MVPs that validate your concept and attract investors.",
       benefits: [
-        "Rapid prototyping and validation",
-        "User-centric design approach",
-        "Agile development methodology",
-        "Market-ready in 8-12 weeks"
+        "Rapid prototyping that saves time & costs",
+        ,"User-focused design for real customer adoption"
+        ,"Agile development for faster market entry"
       ]
     },
     {
@@ -19,10 +18,9 @@ const Services = () => {
       title: "Backend Development",
       description: "Robust, secure, and scalable backend systems that power your applications and handle millions of users seamlessly.",
       benefits: [
-        "Microservices architecture",
-        "API-first development",
-        "Database optimization",
-        "Enterprise-grade security"
+        "Clean, reliable API development for seamless integrations",
+        "Optimized backend systems built for speed and growth",
+        "Scalable architectures that evolve with your business",
       ]
     },
     {
@@ -41,10 +39,9 @@ const Services = () => {
       title: "AI Solutions",
       description: "Integrate cutting-edge AI and machine learning capabilities to automate processes and unlock intelligent insights.",
       benefits: [
-        "Custom AI model development",
-        "Natural language processing",
-        "Computer vision solutions",
-        "Intelligent automation workflows"
+        "Custom AI agents tailored to your workflows",
+        "Integrations with leading AI tools",
+        "AI automation that cuts costs, reduces manual effort & improves efficiency",
       ]
     }
   ];

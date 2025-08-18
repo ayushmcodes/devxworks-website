@@ -24,9 +24,6 @@ const Hero = () => {
             <Button variant="hero" size="lg" className="text-lg px-8 py-4">
               Start Your Project
             </Button>
-            <Button variant="outline" size="lg" className="text-lg px-8 py-4">
-              View Our Work
-            </Button>
           </div>
         </div>
       </div>
