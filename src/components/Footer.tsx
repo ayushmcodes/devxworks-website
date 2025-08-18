@@ -66,7 +66,7 @@ const Footer = () => {
           </div>
           
           <div className="text-sm text-muted-foreground">
-            © 2024 supertech. All rights reserved.
+            © 2025 supertech. All rights reserved.
           </div>
         </div>
       </div>
