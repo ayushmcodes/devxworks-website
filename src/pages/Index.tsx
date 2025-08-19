@@ -4,7 +4,6 @@ import ClientLogos from "@/components/ClientLogos";
 import Services from "@/components/Services";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import CallToAction from "@/components/CallToAction";
-import BookACall from "@/components/BookACall";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -16,7 +15,6 @@ const Index = () => {
       <Services />
       <WhyChooseUs />
       <CallToAction />
-      <BookACall />
       <Footer />
     </div>
   );
