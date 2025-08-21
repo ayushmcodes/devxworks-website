@@ -1,3 +1,5 @@
+import devxLogo from "@/assets/devxlogo.png";
+
 const Footer = () => {
   const footerSections = [
     {
@@ -56,11 +58,18 @@ const Footer = () => {
         
         {/* Company Info */}
         <div className="border-t pt-8 flex flex-col md:flex-row justify-between items-center">
-          <div className="mb-4 md:mb-0">
-            <h2 className="text-lg font-bold text-foreground">
-              devXworks
-            </h2>
-            <p className="text-sm text-muted-foreground mt-1">
+          <div className="mb-4 md:mb-0 flex flex-col items-center md:items-start">
+            <div className="flex items-center mb-2">
+              <img 
+                src={devxLogo} 
+                alt="devXworks" 
+                className="h-6 w-auto mr-2"
+              />
+              <h2 className="text-lg font-bold text-foreground">
+                devXworks
+              </h2>
+            </div>
+            <p className="text-sm text-muted-foreground">
               Building the future, one product at a time.
             </p>
           </div>
