@@ -31,7 +31,7 @@ const WhyChooseUs = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-            Why Choose Supertech
+            Why Choose devXworks
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             We're not just another dev shop — we're your partner in building scalable, investor-ready products.

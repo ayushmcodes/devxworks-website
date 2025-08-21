@@ -21,7 +21,7 @@ const Footer = () => {
     {
       title: "Contact",
       links: [
-        { name: "hello@supertech.dev", href: "mailto:hello@supertech.dev" },
+        { name: "hello@devxworks.dev", href: "mailto:hello@devxworks.dev" },
         { name: "LinkedIn", href: "#" },
         { name: "Twitter", href: "#" },
       ]
@@ -58,7 +58,7 @@ const Footer = () => {
         <div className="border-t pt-8 flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0">
             <h2 className="text-lg font-bold text-foreground">
-              supertech
+              devXworks
             </h2>
             <p className="text-sm text-muted-foreground mt-1">
               Building the future, one product at a time.
@@ -66,7 +66,7 @@ const Footer = () => {
           </div>
           
           <div className="text-sm text-muted-foreground">
-            © 2025 supertech. All rights reserved.
+            © 2025 devXworks. All rights reserved.
           </div>
         </div>
       </div>
