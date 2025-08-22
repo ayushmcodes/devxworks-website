@@ -1,4 +1,5 @@
 import devxLogo from "@/assets/devxlogo.png";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const footerSections = [
@@ -14,9 +15,9 @@ const Footer = () => {
     {
       title: "Quick Links",
       links: [
-        { name: "About Us", href: "#about" },
-        { name: "Case Studies", href: "#case-study" },
-        { name: "Blog", href: "#blogs" },
+        { name: "About Us", href: "/about" },
+        { name: "Case Studies", href: "/case-studies" },
+        { name: "Blog", href: "/blogs" },
         { name: "Careers", href: "#" },
       ]
     },
@@ -43,12 +44,21 @@ const Footer = () => {
               <ul className="space-y-2">
                 {section.links.map((link, linkIndex) => (
                   <li key={linkIndex}>
-                    <a
-                      href={link.href}
-                      className="text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm"
-                    >
-                      {link.name}
-                    </a>
+                    {link.href.startsWith("/") ? (
+                      <Link
+                        to={link.href}
+                        className="text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm"
+                      >
+                        {link.name}
+                      </Link>
+                    ) : (
+                      <a
+                        href={link.href}
+                        className="text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm"
+                      >
+                        {link.name}
+                      </a>
+                    )}
                   </li>
                 ))}
               </ul>

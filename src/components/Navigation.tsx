@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import devxLogo from "@/assets/devxlogo.png";
 import { scrollToContact } from "@/utils/scrollToContact";
+import { Link } from "react-router-dom";
 
 const Navigation = () => {
   return <nav className="w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
@@ -25,13 +26,13 @@ const Navigation = () => {
                 <a href="#services">Our Services</a>
               </Button>
               <Button variant="nav" asChild>
-                <a href="#about">About Us</a>
+                <Link to="/about">About Us</Link>
               </Button>
               <Button variant="nav" asChild>
-                <a href="#case-study">Case Study</a>
+                <Link to="/case-studies">Case Study</Link>
               </Button>
               <Button variant="nav" asChild>
-                <a href="#blogs">Blogs</a>
+                <Link to="/blogs">Blogs</Link>
               </Button>
             </div>
           </div>
