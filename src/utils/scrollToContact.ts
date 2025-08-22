@@ -1,8 +1,19 @@
 export function scrollToContact(): void {
-  if (typeof document === "undefined") {
+  if (typeof window === "undefined") {
     return;
   }
 
+  // Check if we're on the homepage
+  const isHomepage = window.location.pathname === "/" || window.location.pathname === "";
+  
+  if (!isHomepage) {
+    // If not on homepage, use window.location for full navigation to homepage with hash
+    // This will trigger a page change and then scroll to the contact section
+    window.location.assign("/#contact");
+    return;
+  }
+
+  // If on homepage, scroll to contact section
   const targetElement: HTMLElement | null = document.getElementById("contact");
 
   if (targetElement) {
@@ -21,8 +32,6 @@ export function scrollToContact(): void {
     }
   } else {
     // Fallback to hash navigation if element is missing
-    if (typeof window !== "undefined") {
-      window.location.hash = "#contact";
-    }
+    window.location.hash = "#contact";
   }
 }

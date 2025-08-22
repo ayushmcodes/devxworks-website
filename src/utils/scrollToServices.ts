@@ -50,4 +50,32 @@ export function handleHashNavigation(): void {
       scrollToServicesElement();
     }, 100);
   }
+  
+  // Check if we have a hash for contact
+  if (window.location.hash === "#contact") {
+    // Small delay to ensure the page is fully loaded
+    window.setTimeout(() => {
+      scrollToContactElement();
+    }, 100);
+  }
+}
+
+function scrollToContactElement(): void {
+  const targetElement: HTMLElement | null = document.getElementById("contact");
+
+  if (targetElement) {
+    try {
+      targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
+      // Focus after a short delay to ensure scroll positioning is applied
+      window.setTimeout(() => {
+        if (typeof (targetElement as any).focus === "function") {
+          (targetElement as HTMLElement).focus({ preventScroll: true } as any);
+        }
+      }, 250);
+    } catch {
+      // Fallback without smooth behavior
+      targetElement.scrollIntoView();
+      (targetElement as HTMLElement).focus?.();
+    }
+  }
 }

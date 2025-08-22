@@ -58,9 +58,7 @@ const Navigation = () => {
           
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Button variant="cta" asChild>
-              <a href="#contact" onClick={(e) => { e.preventDefault(); scrollToContact(); }}>Get Started</a>
-            </Button>
+            <Button variant="cta" onClick={scrollToContact}>Get Started</Button>
           </div>
           
           {/* Mobile menu button */}

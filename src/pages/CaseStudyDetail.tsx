@@ -228,11 +228,9 @@ const CaseStudyDetail = () => {
               Let's discuss how we can help you achieve similar results.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-              <Button size="lg" variant="default" asChild>
-                <a href="#contact" onClick={(e) => { e.preventDefault(); scrollToContact(); }} className="flex items-center gap-2">
-                  Get Started
-                  <ArrowRight className="w-4 h-4" />
-                </a>
+              <Button size="lg" variant="default" onClick={scrollToContact} className="flex items-center gap-2">
+                Get Started
+                <ArrowRight className="w-4 h-4" />
               </Button>
               <Button size="lg" variant="outline" asChild>
                 <Link to="/case-studies">
