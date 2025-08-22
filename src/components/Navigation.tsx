@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import devxLogo from "@/assets/devxlogo.png";
+import { scrollToContact } from "@/utils/scrollToContact";
 
 const Navigation = () => {
   return <nav className="w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
@@ -38,7 +39,7 @@ const Navigation = () => {
           {/* CTA Button */}
           <div className="hidden md:block">
             <Button variant="cta" asChild>
-              <a href="#contact">Get Started</a>
+              <a href="#contact" onClick={(e) => { e.preventDefault(); scrollToContact(); }}>Get Started</a>
             </Button>
           </div>
           
