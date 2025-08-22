@@ -19,7 +19,7 @@ const Hero = () => {
           {/* Bold Headline */}
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 animate-fade-in">
             Build Your Next
-            <span className="block text-primary bg-gradient-primary bg-clip-text text-transparent">
+            <span className="block text-primary font-extrabold drop-shadow-sm">
               Breakthrough Product
             </span>
           </h1>
