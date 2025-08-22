@@ -27,16 +27,6 @@ const CaseStudies = () => {
           <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             See how we help startups and enterprises build scalable, investor-ready products.
           </p>
-          <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="default" asChild>
-              <a href="#case-studies">Explore Our Work</a>
-            </Button>
-            <Button size="lg" variant="outline" asChild>
-              <a href="#contact" onClick={(e) => { e.preventDefault(); scrollToContact(); }}>
-                Start Your Project
-              </a>
-            </Button>
-          </div>
         </div>
       </section>
 
@@ -128,11 +118,6 @@ const CaseStudies = () => {
                 <a href="#contact" onClick={(e) => { e.preventDefault(); scrollToContact(); }} className="flex items-center gap-2">
                   Start Your Project
                   <ArrowRight className="w-4 h-4" />
-                </a>
-              </Button>
-              <Button size="lg" variant="outline" asChild>
-                <a href="mailto:hello@devxworks.com">
-                  Get in Touch
                 </a>
               </Button>
             </div>

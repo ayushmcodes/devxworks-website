@@ -1,10 +1,20 @@
 import { Button } from "@/components/ui/button";
 import { scrollToContact } from "@/utils/scrollToContact";
+import heroBackground from "@/assets/home-hero-bg.jpg";
 
 const Hero = () => {
   return (
-    <section className="relative py-20 sm:py-32 bg-gradient-hero">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative py-20 sm:py-32 overflow-hidden">
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${heroBackground})` }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-br from-background/95 via-background/90 to-background/95" />
+      <div className="absolute inset-0 bg-gradient-hero opacity-90" />
+      <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px_50px]" />
+      
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           {/* Bold Headline */}
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 animate-fade-in">

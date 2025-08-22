@@ -17,7 +17,6 @@ import heroWorkspace from "@/assets/hero-workspace.jpg";
 import storyInnovation from "@/assets/story-innovation.jpg";
 import missionGrowth from "@/assets/mission-growth.jpg";
 import visionFuture from "@/assets/vision-future.jpg";
-import ctaCollaboration from "@/assets/cta-collaboration.jpg";
 
 const AboutUs = () => {
   useEffect(() => {
@@ -239,46 +238,24 @@ const AboutUs = () => {
         </div>
       </section>
 
-      {/* Call to Action Section */}
-      <section className="py-24 px-4 relative overflow-hidden">
-        {/* Background Image */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${ctaCollaboration})` }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-background/95 via-background/85 to-background/90" />
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/15 via-primary/10 to-primary/20" />
-        <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px_50px]" />
-        
-        <div className="container mx-auto text-center relative z-10">
-          <div className="bg-card/80 backdrop-blur-sm rounded-3xl p-12 md:p-16 max-w-4xl mx-auto border border-primary/10 shadow-2xl">
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-8">
+      {/* CTA Section */}
+      <section className="bg-gradient-to-br from-primary/5 to-secondary/10 py-20 px-4">
+        <div className="container mx-auto max-w-4xl text-center">
+          <div className="space-y-6">
+            <h2 className="text-3xl md:text-5xl font-bold text-foreground">
               Have a project in mind?
             </h2>
-            <h3 className="text-2xl md:text-3xl font-semibold text-foreground/80 mb-8">
-              Let's build it together.
-            </h3>
-            <p className="text-lg text-muted-foreground mb-12 max-w-2xl mx-auto">
-              Ready to turn your vision into reality? We're here to provide the technical foundation 
-              your success deserves.
+            <p className="text-xl text-muted-foreground">
+              Let's build your success story.
             </p>
-            <Button 
-              size="lg" 
-              className="bg-primary hover:bg-primary/90 text-primary-foreground px-12 py-6 text-xl font-semibold rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-300 hover:-translate-y-1 hover:scale-105"
-              onClick={(e) => { 
-                e.preventDefault(); 
-                if (window.location.pathname !== "/") {
-                  window.location.href = "/#contact";
-                } else {
-                  scrollToContact();
-                }
-              }}
-            >
-              <span className="inline-flex items-center gap-3">
-                Get Started
-                <ArrowRight className="w-6 h-6" />
-              </span>
-            </Button>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+              <Button size="lg" variant="default" asChild>
+                <a href="#contact" onClick={(e) => { e.preventDefault(); scrollToContact(); }} className="flex items-center gap-2">
+                  Start Your Project
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+              </Button>
+            </div>
           </div>
         </div>
       </section>

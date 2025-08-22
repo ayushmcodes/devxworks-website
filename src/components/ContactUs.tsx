@@ -6,6 +6,7 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
+import contactPartnership from "@/assets/contact-partnership.jpg";
 
 const ContactUs = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -53,8 +54,17 @@ const ContactUs = () => {
   };
 
   return (
-    <section className="py-20 bg-background" id="contact" tabIndex={-1}>
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-20 relative overflow-hidden" id="contact" tabIndex={-1}>
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${contactPartnership})` }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-br from-background/95 via-background/90 to-background/95" />
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-primary/5" />
+      <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px_50px]" />
+      
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-2xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-16">
@@ -67,7 +77,7 @@ const ContactUs = () => {
           </div>
 
           {/* Contact Form */}
-          <Card className="bg-gradient-card border-border/50 shadow-elegant">
+          <Card className="bg-card/80 backdrop-blur-sm border-0 shadow-2xl">
             <CardHeader>
               <CardTitle className="text-2xl font-semibold text-foreground">
                 Contact Us
