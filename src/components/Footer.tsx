@@ -1,15 +1,26 @@
 import devxLogo from "@/assets/devxlogo.png";
 import { Link } from "react-router-dom";
+import { scrollToServices } from "@/utils/scrollToServices";
+
+interface FooterLink {
+  name: string;
+  href: string;
+  onClick?: () => void;
+}
+
+interface FooterSection {
+  title: string;
+  links: FooterLink[];
+}
 
 const Footer = () => {
-  const footerSections = [
+  const footerSections: FooterSection[] = [
     {
       title: "Services",
       links: [
-        { name: "MVP Development", href: "#services" },
-        { name: "Backend Development", href: "#services" },
-        { name: "DevOps Services", href: "#services" },
-        { name: "Consulting", href: "#" },
+        { name: "MVP Development", href: "#services", onClick: scrollToServices },
+        { name: "Backend Development", href: "#services", onClick: scrollToServices },
+        { name: "DevOps Services", href: "#services", onClick: scrollToServices },
       ]
     },
     {
@@ -25,7 +36,6 @@ const Footer = () => {
       links: [
         { name: "hello@devxworks.com", href: "mailto:hello@devxworks.com" },
         { name: "LinkedIn", href: "https://www.linkedin.com/company/devxwork/" },
-        { name: "Twitter", href: "#" },
       ]
     }
   ];
@@ -50,6 +60,13 @@ const Footer = () => {
                       >
                         {link.name}
                       </Link>
+                    ) : link.onClick ? (
+                      <button
+                        onClick={(e) => { e.preventDefault(); link.onClick(); }}
+                        className="text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm cursor-pointer bg-transparent border-none p-0 text-left"
+                      >
+                        {link.name}
+                      </button>
                     ) : (
                       <a
                         href={link.href}
