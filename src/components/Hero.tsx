@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { scrollToContact } from "@/utils/scrollToContact";
 
 const Hero = () => {
   return (
@@ -21,7 +22,7 @@ const Hero = () => {
           
           {/* CTA Button */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-slide-up">
-            <Button variant="hero" size="lg" className="text-lg px-8 py-4">
+            <Button variant="hero" size="lg" className="text-lg px-8 py-4" type="button" onClick={scrollToContact}>
               Start Your Project
             </Button>
           </div>
