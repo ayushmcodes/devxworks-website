@@ -18,14 +18,13 @@ const Footer = () => {
         { name: "About Us", href: "/about" },
         { name: "Case Studies", href: "/case-studies" },
         { name: "Blog", href: "/blogs" },
-        { name: "Careers", href: "#" },
       ]
     },
     {
       title: "Contact",
       links: [
         { name: "hello@devxworks.com", href: "mailto:hello@devxworks.com" },
-        { name: "LinkedIn", href: "#" },
+        { name: "LinkedIn", href: "https://www.linkedin.com/company/devxwork/" },
         { name: "Twitter", href: "#" },
       ]
     }
@@ -55,6 +54,8 @@ const Footer = () => {
                       <a
                         href={link.href}
                         className="text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm"
+                        target={link.href.startsWith("http") ? "_blank" : undefined}
+                        rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
                       >
                         {link.name}
                       </a>
