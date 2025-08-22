@@ -3,10 +3,12 @@ import devxLogo from "@/assets/devxlogo.png";
 import { scrollToContact } from "@/utils/scrollToContact";
 import { scrollToServices } from "@/utils/scrollToServices";
 import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useState } from "react";
 
 const Navigation = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleLogoClick = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -18,6 +20,14 @@ const Navigation = () => {
       // Navigate to homepage
       navigate("/");
     }
+  };
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
   };
 
   return <nav className="w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
@@ -63,13 +73,53 @@ const Navigation = () => {
           
           {/* Mobile menu button */}
           <div className="md:hidden">
-            <Button variant="ghost" size="sm">
+            <Button variant="ghost" size="sm" onClick={toggleMobileMenu}>
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             </Button>
           </div>
         </div>
+        
+        {/* Mobile Menu Dropdown */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden">
+            <div className="px-2 pt-2 pb-3 space-y-1 bg-background border-t">
+              <Button 
+                variant="ghost" 
+                className="w-full justify-start" 
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToServices();
+                  closeMobileMenu();
+                }}
+              >
+                Our Services
+              </Button>
+              <Button variant="ghost" className="w-full justify-start" asChild>
+                <Link to="/about" onClick={closeMobileMenu}>About Us</Link>
+              </Button>
+              <Button variant="ghost" className="w-full justify-start" asChild>
+                <Link to="/case-studies" onClick={closeMobileMenu}>Case Study</Link>
+              </Button>
+              <Button variant="ghost" className="w-full justify-start" asChild>
+                <Link to="/blogs" onClick={closeMobileMenu}>Blogs</Link>
+              </Button>
+              <div className="pt-2">
+                <Button 
+                  variant="cta" 
+                  className="w-full" 
+                  onClick={() => {
+                    scrollToContact();
+                    closeMobileMenu();
+                  }}
+                >
+                  Get Started
+                </Button>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </nav>;
 };
