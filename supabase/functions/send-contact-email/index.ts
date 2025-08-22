@@ -56,34 +56,48 @@ const handler = async (req: Request): Promise<Response> => {
     }
 
     // Send email notification
-    const emailResponse = await resend.emails.send({
-      from: "Contact Form <hello@devxworks.com>",
-      to: ["hello@devxworks.com", "ayush@devxworks.com"],
-      subject: `New Contact Form Submission from ${name}`,
-      html: `
-        <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
-          <h2 style="color: #333; margin-bottom: 20px;">New Contact Form Submission</h2>
-          
-          <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
-            <h3 style="color: #333; margin: 0 0 15px 0;">Contact Details</h3>
-            <p><strong>Name:</strong> ${name}</p>
-            <p><strong>Email:</strong> ${email}</p>
-            ${company ? `<p><strong>Company:</strong> ${company}</p>` : ''}
+    console.log("Attempting to send email with Resend...");
+    
+    try {
+      const emailResponse = await resend.emails.send({
+        from: "Contact Form <hello@devxworks.com>",
+        to: ["hello@devxworks.com", "ayush@devxworks.com"],
+        subject: `New Contact Form Submission from ${name}`,
+        html: `
+          <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
+            <h2 style="color: #333; margin-bottom: 20px;">New Contact Form Submission</h2>
+            
+            <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+              <h3 style="color: #333; margin: 0 0 15px 0;">Contact Details</h3>
+              <p><strong>Name:</strong> ${name}</p>
+              <p><strong>Email:</strong> ${email}</p>
+              ${company ? `<p><strong>Company:</strong> ${company}</p>` : ''}
+            </div>
+            
+            <div style="background: #f8f9fa; padding: 20px; border-radius: 8px;">
+              <h3 style="color: #333; margin: 0 0 15px 0;">Project Details</h3>
+              <p style="white-space: pre-wrap;">${projectDetails}</p>
+            </div>
+            
+            <p style="color: #666; margin-top: 20px; font-size: 14px;">
+              This message was sent from your website contact form.
+            </p>
           </div>
-          
-          <div style="background: #f8f9fa; padding: 20px; border-radius: 8px;">
-            <h3 style="color: #333; margin: 0 0 15px 0;">Project Details</h3>
-            <p style="white-space: pre-wrap;">${projectDetails}</p>
-          </div>
-          
-          <p style="color: #666; margin-top: 20px; font-size: 14px;">
-            This message was sent from your website contact form.
-          </p>
-        </div>
-      `,
-    });
+        `,
+      });
 
-    console.log("Email sent successfully:", emailResponse);
+      console.log("Email sent successfully:", JSON.stringify(emailResponse, null, 2));
+      
+      if (emailResponse.error) {
+        console.error("Resend API error:", emailResponse.error);
+        throw new Error(`Resend API error: ${emailResponse.error.message}`);
+      }
+      
+    } catch (emailError) {
+      console.error("Email sending failed:", emailError);
+      // Don't throw here - we want to save to DB even if email fails
+      console.log("Continuing despite email error...");
+    }
 
     return new Response(
       JSON.stringify({ success: true, message: "Thank you for your message! We'll get back to you within 24 hours." }),
