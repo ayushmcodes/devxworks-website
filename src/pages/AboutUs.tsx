@@ -13,6 +13,11 @@ import {
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { scrollToContact } from "@/utils/scrollToContact";
+import heroWorkspace from "@/assets/hero-workspace.jpg";
+import storyInnovation from "@/assets/story-innovation.jpg";
+import missionGrowth from "@/assets/mission-growth.jpg";
+import visionFuture from "@/assets/vision-future.jpg";
+import ctaCollaboration from "@/assets/cta-collaboration.jpg";
 
 const AboutUs = () => {
   useEffect(() => {
@@ -52,9 +57,16 @@ const AboutUs = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="relative py-24 px-4 bg-gradient-to-br from-primary/10 via-primary/5 to-background overflow-hidden">
+      <section className="relative py-24 px-4 overflow-hidden">
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${heroWorkspace})` }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-background/95 via-background/90 to-background/95" />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-primary/5 to-background/20" />
         <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:60px_60px]" />
-        <div className="absolute inset-0 bg-gradient-to-br from-transparent via-primary/5 to-transparent" />
+        
         <div className="container mx-auto text-center relative z-10">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-8 bg-gradient-to-br from-foreground to-foreground/80 bg-clip-text">
             About Us
@@ -75,29 +87,49 @@ const AboutUs = () => {
             <div className="w-24 h-1 bg-gradient-to-r from-primary/50 via-primary to-primary/50 mx-auto mb-12 rounded-full"></div>
           </div>
           
-          <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/5 rounded-3xl"></div>
-            <Card className="border-0 shadow-xl bg-card/80 backdrop-blur-sm">
-              <CardContent className="p-12 md:p-16">
-                <p className="text-lg md:text-xl text-muted-foreground leading-relaxed text-center mb-8">
-                  devXworks was born from a simple belief: every ambitious idea deserves the technical foundation to succeed. 
-                  We've seen too many startups struggle with technical debt, enterprises held back by legacy systems, 
-                  and brilliant ideas that never reached their potential due to poor execution.
-                </p>
-                <p className="text-lg md:text-xl text-muted-foreground leading-relaxed text-center">
-                  That's why we exist — to be the technology backbone that empowers startups and enterprises to turn 
-                  their vision into reality. We combine cutting-edge technology with startup-focused thinking, 
-                  delivering solutions that don't just work today, but scale for tomorrow.
-                </p>
-              </CardContent>
-            </Card>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            {/* Story Content */}
+            <div className="relative order-2 lg:order-1">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/5 rounded-3xl"></div>
+              <Card className="border-0 shadow-xl bg-card/80 backdrop-blur-sm">
+                <CardContent className="p-8 md:p-12">
+                  <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                    devXworks was born from a simple belief: every ambitious idea deserves the technical foundation to succeed. 
+                    We've seen too many startups struggle with technical debt, enterprises held back by legacy systems, 
+                    and brilliant ideas that never reached their potential due to poor execution.
+                  </p>
+                  <p className="text-lg text-muted-foreground leading-relaxed">
+                    That's why we exist — to be the technology backbone that empowers startups and enterprises to turn 
+                    their vision into reality. We combine cutting-edge technology with startup-focused thinking, 
+                    delivering solutions that don't just work today, but scale for tomorrow.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* Story Image */}
+            <div className="relative order-1 lg:order-2">
+              <div className="relative overflow-hidden rounded-3xl shadow-2xl group">
+                <img 
+                  src={storyInnovation} 
+                  alt="Innovation and startup journey" 
+                  className="w-full h-[400px] object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-primary/10"></div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Our Values Section */}
-      <section className="py-24 px-4 bg-gradient-to-br from-secondary/20 via-background to-secondary/10">
-        <div className="container mx-auto">
+      <section className="py-24 px-4 bg-gradient-to-br from-secondary/20 via-background to-secondary/10 relative overflow-hidden">
+        {/* Floating Background Elements */}
+        <div className="absolute top-20 left-10 w-32 h-32 bg-primary/5 rounded-full blur-xl animate-pulse"></div>
+        <div className="absolute bottom-32 right-16 w-24 h-24 bg-primary/10 rounded-full blur-lg animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 right-1/4 w-16 h-16 bg-primary/5 rounded-full blur-md animate-pulse delay-500"></div>
+        
+        <div className="container mx-auto relative z-10">
           <div className="text-center mb-20">
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
               Our Values
@@ -142,16 +174,28 @@ const AboutUs = () => {
             {/* Mission */}
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/10 rounded-3xl"></div>
-              <Card className="border-0 shadow-xl bg-card/80 backdrop-blur-sm h-full">
-                <CardHeader className="text-center pb-8">
-                  <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-primary/30 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                    <Target className="w-8 h-8 text-primary" />
+              <Card className="border-0 shadow-xl bg-card/80 backdrop-blur-sm h-full overflow-hidden">
+                {/* Mission Image */}
+                <div className="relative h-48 overflow-hidden">
+                  <img 
+                    src={missionGrowth} 
+                    alt="Mission - Growth and Analytics" 
+                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/30 via-primary/10 to-transparent"></div>
+                  <div className="absolute top-6 left-6">
+                    <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
+                      <Target className="w-6 h-6 text-white" />
+                    </div>
                   </div>
-                  <CardTitle className="text-3xl font-bold text-foreground mb-6">
+                </div>
+                
+                <CardHeader className="text-center pb-4">
+                  <CardTitle className="text-3xl font-bold text-foreground mb-4">
                     Our Mission
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="text-center">
+                <CardContent className="text-center pb-8">
                   <p className="text-lg text-muted-foreground leading-relaxed">
                     To be the technology backbone for startups and enterprises, delivering solutions 
                     that combine innovation with execution.
@@ -163,16 +207,28 @@ const AboutUs = () => {
             {/* Vision */}
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-primary/5 rounded-3xl"></div>
-              <Card className="border-0 shadow-xl bg-card/80 backdrop-blur-sm h-full">
-                <CardHeader className="text-center pb-8">
-                  <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-primary/30 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                    <Eye className="w-8 h-8 text-primary" />
+              <Card className="border-0 shadow-xl bg-card/80 backdrop-blur-sm h-full overflow-hidden">
+                {/* Vision Image */}
+                <div className="relative h-48 overflow-hidden">
+                  <img 
+                    src={visionFuture} 
+                    alt="Vision - Future Technology" 
+                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/30 via-primary/10 to-transparent"></div>
+                  <div className="absolute top-6 left-6">
+                    <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
+                      <Eye className="w-6 h-6 text-white" />
+                    </div>
                   </div>
-                  <CardTitle className="text-3xl font-bold text-foreground mb-6">
+                </div>
+                
+                <CardHeader className="text-center pb-4">
+                  <CardTitle className="text-3xl font-bold text-foreground mb-4">
                     Our Vision
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="text-center">
+                <CardContent className="text-center pb-8">
                   <p className="text-lg text-muted-foreground leading-relaxed">
                     A world where every idea, big or small, can scale without limits.
                   </p>
@@ -184,36 +240,46 @@ const AboutUs = () => {
       </section>
 
       {/* Call to Action Section */}
-      <section className="py-24 px-4 bg-gradient-to-br from-primary/10 via-primary/5 to-background relative overflow-hidden">
+      <section className="py-24 px-4 relative overflow-hidden">
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${ctaCollaboration})` }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-background/95 via-background/85 to-background/90" />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/15 via-primary/10 to-primary/20" />
         <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px_50px]" />
+        
         <div className="container mx-auto text-center relative z-10">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-8">
-            Have a project in mind?
-          </h2>
-          <h3 className="text-2xl md:text-3xl font-semibold text-foreground/80 mb-8">
-            Let's build it together.
-          </h3>
-          <p className="text-lg text-muted-foreground mb-12 max-w-2xl mx-auto">
-            Ready to turn your vision into reality? We're here to provide the technical foundation 
-            your success deserves.
-          </p>
-          <Button 
-            size="lg" 
-            className="bg-primary hover:bg-primary/90 text-primary-foreground px-12 py-6 text-xl font-semibold rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-300 hover:-translate-y-1 hover:scale-105"
-            onClick={(e) => { 
-              e.preventDefault(); 
-              if (window.location.pathname !== "/") {
-                window.location.href = "/#contact";
-              } else {
-                scrollToContact();
-              }
-            }}
-          >
-            <span className="inline-flex items-center gap-3">
-              Get Started
-              <ArrowRight className="w-6 h-6" />
-            </span>
-          </Button>
+          <div className="bg-card/80 backdrop-blur-sm rounded-3xl p-12 md:p-16 max-w-4xl mx-auto border border-primary/10 shadow-2xl">
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-8">
+              Have a project in mind?
+            </h2>
+            <h3 className="text-2xl md:text-3xl font-semibold text-foreground/80 mb-8">
+              Let's build it together.
+            </h3>
+            <p className="text-lg text-muted-foreground mb-12 max-w-2xl mx-auto">
+              Ready to turn your vision into reality? We're here to provide the technical foundation 
+              your success deserves.
+            </p>
+            <Button 
+              size="lg" 
+              className="bg-primary hover:bg-primary/90 text-primary-foreground px-12 py-6 text-xl font-semibold rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-300 hover:-translate-y-1 hover:scale-105"
+              onClick={(e) => { 
+                e.preventDefault(); 
+                if (window.location.pathname !== "/") {
+                  window.location.href = "/#contact";
+                } else {
+                  scrollToContact();
+                }
+              }}
+            >
+              <span className="inline-flex items-center gap-3">
+                Get Started
+                <ArrowRight className="w-6 h-6" />
+              </span>
+            </Button>
+          </div>
         </div>
       </section>
 
