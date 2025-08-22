@@ -1,8 +1,18 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
-import { Resend } from "npm:resend@2.0.0";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.55.0";
+import { SMTPClient } from "https://deno.land/x/denomailer@1.6.0/mod.ts";
 
-const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
+const smtpClient = new SMTPClient({
+  connection: {
+    hostname: "smtp.zoho.com",
+    port: 587,
+    tls: true,
+    auth: {
+      username: Deno.env.get("ZOHO_EMAIL")!,
+      password: Deno.env.get("ZOHO_PASSWORD")!,
+    },
+  },
+});
 const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
 const supabaseKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
 
@@ -56,14 +66,14 @@ const handler = async (req: Request): Promise<Response> => {
     }
 
     // Send email notification
-    console.log("Attempting to send email with Resend...");
+    console.log("Attempting to send email with Zoho SMTP...");
     
     try {
-      const emailResponse = await resend.emails.send({
-        from: "Contact Form <hello@devxworks.com>",
+      await smtpClient.send({
+        from: "hello@devxworks.com",
         to: ["hello@devxworks.com", "ayush@devxworks.com"],
         subject: `New Contact Form Submission from ${name}`,
-        html: `
+        content: `
           <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
             <h2 style="color: #333; margin-bottom: 20px;">New Contact Form Submission</h2>
             
@@ -84,14 +94,10 @@ const handler = async (req: Request): Promise<Response> => {
             </p>
           </div>
         `,
+        html: true,
       });
 
-      console.log("Email sent successfully:", JSON.stringify(emailResponse, null, 2));
-      
-      if (emailResponse.error) {
-        console.error("Resend API error:", emailResponse.error);
-        throw new Error(`Resend API error: ${emailResponse.error.message}`);
-      }
+      console.log("Email sent successfully via Zoho SMTP");
       
     } catch (emailError) {
       console.error("Email sending failed:", emailError);
