@@ -55,6 +55,10 @@ exports.handler = async (event, context) => {
       projectDetails: projectDetails.substring(0, 100) + '...', // Truncate for logging
     });
 
+    console.log("auth")
+    console.log(process.env.ZOHO_SMTP_USER);
+    console.log(process.env.ZOHO_SMTP_PASS);
+
     // Configure Zoho SMTP transporter
     const transporter = nodemailer.createTransport({
       host: 'smtp.zoho.com',
