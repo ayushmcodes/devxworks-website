@@ -61,7 +61,7 @@ exports.handler = async (event, context) => {
     try {
       // Send mail with Resend
       const { data, error } = await resend.emails.send({
-        from: "hello@devxworks.com", 
+        from: "ayush@devxworks.com", 
         to: "ayush@devxworks.com",
         subject: `New Contact Form Submission from ${name}`,
         html: `
