@@ -63,13 +63,10 @@ exports.handler = async (event, context) => {
     const transporter = nodemailer.createTransport({
       host: 'smtp.zoho.com',
       port: 587,
-      secure: false, // Use TLS
+      tls: true,
       auth: {
         user: process.env.ZOHO_SMTP_USER || "hello@devxworks.com",
         pass: process.env.ZOHO_SMTP_PASS
-      },
-      tls: {
-        ciphers: 'SSLv3'
       }
     });
 
