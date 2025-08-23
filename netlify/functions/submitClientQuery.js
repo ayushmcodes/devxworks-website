@@ -1,4 +1,4 @@
-const nodemailer = require('nodemailer');
+const SMTPClient = require('smtp-client');
 
 exports.handler = async (event, context) => {
   // Set CORS headers
@@ -55,18 +55,17 @@ exports.handler = async (event, context) => {
       projectDetails: projectDetails.substring(0, 100) + '...', // Truncate for logging
     });
 
-    console.log("auth is")
-    console.log(process.env.ZOHO_SMTP_USER)
-    console.log(process.env.ZOHO_SMTP_PASS)
-    // Configure Zoho SMTP transporter
-    const transporter = nodemailer.createTransport({
-      host: 'smtp.zoho.com',
-      port: 587,
-      secure: false, // Use TLS
-      auth: {
-        user: process.env.ZOHO_SMTP_USER, // hello@devxworks.com
-        pass: process.env.ZOHO_SMTP_PASS, // App-specific password
-      },
+    
+    const smtpClient = new SMTPClient({
+        connection: {
+          hostname: "smtp.zoho.com",
+          port: 587,
+          tls: true,
+          auth: {
+            username: "hello@devxworks.com",
+            password: "*Hellodevxworks1#"
+          }
+        }
     });
 
     // Email content
@@ -115,7 +114,7 @@ exports.handler = async (event, context) => {
 
     // Send email
     try {
-      await transporter.sendMail(mailOptions);
+      await smtpClient.send(mailOptions);
       console.log('Email sent successfully');
     } catch (emailError) {
       console.error('Failed to send email:', emailError);
