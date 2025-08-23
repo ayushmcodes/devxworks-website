@@ -1,4 +1,4 @@
-module github.com/someone/submitClientQuery
+module github.com/devxworks/submitClientQuery
 
 go 1.19
 

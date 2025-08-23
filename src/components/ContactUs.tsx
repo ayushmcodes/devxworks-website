@@ -5,7 +5,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
-import { supabase } from "@/integrations/supabase/client";
 import contactPartnership from "@/assets/contact-partnership.jpg";
 
 const ContactUs = () => {
@@ -25,12 +24,22 @@ const ContactUs = () => {
     };
 
     try {
-      const { data: result, error } = await supabase.functions.invoke('send-contact-email', {
-        body: data
+      // Get the Lambda endpoint URL from environment variables or use default
+      const apiEndpoint = import.meta.env.VITE_SUBMIT_CLIENT_QUERY_URL || 
+        "https://your-api-gateway-url.amazonaws.com/submitClientQuery";
+
+      const response = await fetch(apiEndpoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
       });
 
-      if (error) {
-        throw error;
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.error || "Failed to send message");
       }
 
       toast({
