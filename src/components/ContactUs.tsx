@@ -23,8 +23,6 @@ const ContactUs = () => {
       projectDetails: formData.get("projectDetails") as string,
     };
 
-    console.log("running")
-
     try {
       // Use appropriate endpoint based on environment
       const apiEndpoint = import.meta.env.DEV 
