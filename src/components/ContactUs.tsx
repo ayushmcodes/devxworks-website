@@ -23,11 +23,14 @@ const ContactUs = () => {
       projectDetails: formData.get("projectDetails") as string,
     };
 
-    try {
-      // Get the Lambda endpoint URL from environment variables or use default
-      const apiEndpoint = import.meta.env.VITE_SUBMIT_CLIENT_QUERY_URL || 
-        "https://your-api-gateway-url.amazonaws.com/submitClientQuery";
+    console.log("running")
 
+    try {
+      // Use appropriate endpoint based on environment
+      const apiEndpoint = import.meta.env.DEV 
+        ? '/.netlify/functions/submitClientQuery'  // Local development
+        : 'https://devxworks.com/.netlify/functions/submitClientQuery';  // Production
+      
       const response = await fetch(apiEndpoint, {
         method: "POST",
         headers: {
