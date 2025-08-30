@@ -29,13 +29,15 @@ const Hero = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           {/* Bold Headline */}
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 animate-fade-in">
-            accelerate your product
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 animate-fade-in leading-tight">
+            <span className="block">
+              accelerate your product
+            </span>
             <span className="block text-foreground">
               development with our
             </span>
-              <div className="block text-primary text-3xl sm:text-4xl lg:text-5xl font-semibold mt-2 text-center">
-                <div className="h-12 sm:h-14 lg:h-16 flex items-center justify-center">
+              <div className="block text-primary text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mt-2 text-center">
+                <div className="h-10 sm:h-12 md:h-14 lg:h-16 flex items-center justify-center">
                   <div 
                     className="slide-up-text"
                     key={currentEngineerType}
@@ -54,7 +56,12 @@ const Hero = () => {
           
           {/* CTA Button */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-slide-up">
-            <Button variant="hero" size="lg" className="text-lg px-8 py-4" type="button" onClick={scrollToContact}>
+            <Button 
+              size="xl" 
+              className="bg-primary text-white hover:bg-primary/90 hover:scale-105 transform font-semibold text-xl border-0 shadow-elegant hover:shadow-glow" 
+              type="button" 
+              onClick={scrollToContact}
+            >
               Start Your Project
             </Button>
           </div>

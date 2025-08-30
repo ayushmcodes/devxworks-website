@@ -1,9 +1,15 @@
 import { Button } from "@/components/ui/button";
 import devxLogo from "@/assets/devxlogo.png";
 import { scrollToContact } from "@/utils/scrollToContact";
-import { scrollToServices } from "@/utils/scrollToServices";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useState } from "react";
+
+const scrollToServices = () => {
+  const element = document.querySelector('#services');
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' });
+  }
+};
 
 const Navigation = () => {
   const navigate = useNavigate();
@@ -41,9 +47,9 @@ const Navigation = () => {
             <img 
               src={devxLogo} 
               alt="devXworks" 
-              className="h-8 w-auto mr-2"
+              className="h-10 w-auto mr-3"
             />
-            <h1 className="text-xl font-bold text-foreground">
+            <h1 className="text-2xl font-bold text-foreground">
               devXworks
             </h1>
           </button>
