@@ -124,7 +124,7 @@ const ProcessSection = () => {
               {/* Button aligned with step content */}
               <div className="flex-1">
                 <Button 
-                  className="text-white font-semibold px-8 py-4 rounded-lg hover:opacity-90 transition-opacity text-lg"
+                  className="text-white font-semibold px-12 py-6 rounded-lg hover:opacity-90 transition-opacity text-xl"
                   style={{ 
                     backgroundColor: 'rgb(60, 131, 246)'
                   }}
