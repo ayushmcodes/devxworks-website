@@ -67,6 +67,22 @@ const Hero = () => {
           </div>
         </div>
       </div>
+      
+      {/* Curved Bottom Transition */}
+      <div className="absolute bottom-0 left-0 right-0 overflow-hidden">
+        <svg 
+          className="relative block w-full h-20 md:h-24 lg:h-28" 
+          preserveAspectRatio="none" 
+          viewBox="0 0 1440 120" 
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path 
+            d="M0,120 C720,40 720,40 1440,120 L1440,120 L0,120 Z" 
+            fill="currentColor" 
+            className="text-background"
+          />
+        </svg>
+      </div>
     </section>
   );
 };
