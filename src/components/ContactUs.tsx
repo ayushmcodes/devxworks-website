@@ -23,8 +23,6 @@ const ContactUs = () => {
       projectDetails: formData.get("projectDetails") as string,
     };
 
-    console.log("running")
-
     try {
       // Use appropriate endpoint based on environment
       const apiEndpoint = import.meta.env.DEV 
@@ -99,7 +97,7 @@ const ContactUs = () => {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6" netlify name="submitUserQuery">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <Label htmlFor="name" className="text-foreground font-medium">
