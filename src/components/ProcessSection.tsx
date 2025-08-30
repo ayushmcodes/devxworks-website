@@ -30,7 +30,7 @@ const ProcessSection = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left Side - Image */}
-          <div className="order-2 lg:order-1">
+          <div className="order-2 lg:order-1 hidden lg:block">
             <div className="relative">
               <img 
                 src={heroWorkspace}
