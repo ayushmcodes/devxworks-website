@@ -116,12 +116,7 @@ const NewServices = () => {
               <span className="text-primary"> Expertise</span>.
             </h2>
           </div>
-          <div className="hidden md:flex items-center text-foreground hover:text-primary transition-colors cursor-pointer">
-            <span className="text-lg font-medium mr-2">Everything we do</span>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M7 17l9.2-9.2M17 17V7H7"/>
-            </svg>
-          </div>
+
         </div>
 
         {/* Services Grid */}

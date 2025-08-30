@@ -47,9 +47,9 @@ const Navigation = () => {
             <img 
               src={devxLogo} 
               alt="devXworks" 
-              className="h-8 w-auto mr-2"
+              className="h-10 w-auto mr-3"
             />
-            <h1 className="text-xl font-bold text-foreground">
+            <h1 className="text-2xl font-bold text-foreground">
               devXworks
             </h1>
           </button>
