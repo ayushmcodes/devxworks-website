@@ -1,9 +1,15 @@
 import { Button } from "@/components/ui/button";
 import devxLogo from "@/assets/devxlogo.png";
 import { scrollToContact } from "@/utils/scrollToContact";
-import { scrollToServices } from "@/utils/scrollToServices";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useState } from "react";
+
+const scrollToServices = () => {
+  const element = document.querySelector('#services');
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' });
+  }
+};
 
 const Navigation = () => {
   const navigate = useNavigate();
