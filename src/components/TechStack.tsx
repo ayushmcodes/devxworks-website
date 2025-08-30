@@ -1,8 +1,6 @@
 const TechStack = () => {
-  const technologies = [
-    "C#", "Rails", "Node.js", "Java", "React", ".NET", "Python",
-    "Android", "iOS", "Golang", "Vue.js", "C++", "JavaScript", "Swift", "Angular"
-  ];
+  const line1Technologies = ["C#", "Rails", "Node.js", "Java", "React", ".NET"];
+  const line2Technologies = ["Python", "iOS", "Golang", "Vue.js", "JavaScript", "Swift"];
 
   return (
     <section className="py-20 bg-gray-50">
@@ -39,26 +37,60 @@ const TechStack = () => {
           </p>
         </div>
 
-        {/* Technology Grid */}
+        {/* Technology Animation Lines */}
         <div className="relative overflow-hidden">
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12 lg:gap-16">
-            {technologies.map((tech, index) => (
-              <div
-                key={index}
-                className="select-none"
-                style={{
-                  fontFamily: 'Outfit, sans-serif',
-                  fontStyle: 'normal',
-                  fontWeight: 400,
-                  fontSize: '32px',
-                  lineHeight: '42px',
-                  color: 'rgba(108, 117, 125, 0.4)',
-                  opacity: 0.6
-                }}
-              >
-                {tech}
-              </div>
-            ))}
+          {/* Line 1 - Moving Left */}
+          <div className="relative overflow-hidden mb-4">
+            <div 
+              className="flex whitespace-nowrap animate-scroll-left"
+              style={{ width: 'max-content' }}
+            >
+              {/* Duplicate content for seamless loop */}
+              {[...line1Technologies, ...line1Technologies, ...line1Technologies].map((tech, index) => (
+                <div
+                  key={index}
+                  className="select-none mx-4 md:mx-6 lg:mx-8"
+                  style={{
+                    fontFamily: 'Outfit, sans-serif',
+                    fontStyle: 'normal',
+                    fontWeight: 700,
+                    fontSize: '52px',
+                    lineHeight: '64px',
+                    color: 'rgba(108, 117, 125, 0.4)',
+                    opacity: 0.6
+                  }}
+                >
+                  {tech}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Line 2 - Moving Right */}
+          <div className="relative overflow-hidden">
+            <div 
+              className="flex whitespace-nowrap animate-scroll-right"
+              style={{ width: 'max-content' }}
+            >
+              {/* Duplicate content for seamless loop */}
+              {[...line2Technologies, ...line2Technologies, ...line2Technologies].map((tech, index) => (
+                <div
+                  key={index}
+                  className="select-none mx-4 md:mx-6 lg:mx-8"
+                  style={{
+                    fontFamily: 'Outfit, sans-serif',
+                    fontStyle: 'normal',
+                    fontWeight: 700,
+                    fontSize: '52px',
+                    lineHeight: '64px',
+                    color: 'rgba(108, 117, 125, 0.4)',
+                    opacity: 0.6
+                  }}
+                >
+                  {tech}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
