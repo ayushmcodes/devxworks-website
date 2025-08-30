@@ -89,14 +89,14 @@ const CaseStudies = () => {
               return (
                 <div 
                   key={work.id}
-                  className={`group relative overflow-hidden rounded-2xl bg-card hover:shadow-2xl transition-all duration-500 cursor-pointer ${getSizeClasses(work.size)}`}
+                  className={`group relative overflow-hidden rounded-2xl bg-card cursor-pointer transition-all duration-300 hover:shadow-[0_0_0_4px_white,_0_0_0_8px_black] ${getSizeClasses(work.size)}`}
                 >
                   {/* Background Image */}
                   <div className="w-full h-full overflow-hidden">
                     <img 
                       src={work.image}
                       alt={`${work.company} project`}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                      className="w-full h-full object-cover"
                     />
                     {/* Overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
