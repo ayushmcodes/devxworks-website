@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
-import { ArrowLeft, ArrowRight, CheckCircle, Target, Lightbulb, TrendingUp, Code, Home, ChevronRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, CheckCircle, Target, Lightbulb, TrendingUp, Code, Home, ChevronRight, Calendar, Users, Zap } from "lucide-react";
 import { Link, useParams, Navigate } from "react-router-dom";
 import { caseStudies } from "@/data/caseStudies";
 import Navigation from "@/components/Navigation";
@@ -56,7 +56,7 @@ const CaseStudyDetail = () => {
                 <ChevronRight className="w-4 h-4 text-white/60" />
                 <Link to="/case-studies" className="text-white/80 hover:text-white transition-colors">
                   Our Work
-                </Link>
+            </Link>
                 <ChevronRight className="w-4 h-4 text-white/60" />
                 <span className="text-white">{caseStudy.client}</span>
               </nav>
@@ -97,7 +97,7 @@ const CaseStudyDetail = () => {
                     className="w-full py-3 bg-primary hover:bg-primary/90 text-white font-semibold rounded-lg text-base"
                   >
                     Send
-                  </Button>
+          </Button>
                 </form>
               </div>
             </div>
@@ -114,7 +114,7 @@ const CaseStudyDetail = () => {
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground">
                 The summary<span className="text-primary">.</span>
               </h2>
-              <div className="space-y-6">
+          <div className="space-y-6">
                 <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
                   {caseStudy.overview}
                 </p>
@@ -123,7 +123,7 @@ const CaseStudyDetail = () => {
                 </p>
               </div>
             </div>
-
+            
             {/* Right Content - Company Logo/Image */}
             <div className="flex justify-center lg:justify-end">
               <div className="w-full max-w-md lg:max-w-lg">
@@ -138,6 +138,107 @@ const CaseStudyDetail = () => {
                 />
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Project Metrics Section */}
+      <section className="py-16 px-4">
+        <div className="container mx-auto max-w-6xl">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            {/* Engagement Length */}
+            <div className="group relative">
+              <div className="bg-white rounded-2xl p-6 border border-gray-100 hover:border-gray-200 transition-all duration-300 hover:shadow-lg h-full flex flex-col">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="flex-1">
+                    <div className="text-sm font-medium text-gray-500 mb-1">Project Duration</div>
+                    <div className="text-2xl font-bold text-gray-900 mb-2">
+                      <span className="text-3xl">{caseStudy.id === 'akamai' ? '18' : 
+                       caseStudy.id === 'slice' ? '12' : 
+                       caseStudy.id === 'razorpay' ? '24' : '15'}</span> months
+                    </div>
+                  </div>
+                  <div className="w-10 h-10 bg-gray-50 rounded-full flex items-center justify-center group-hover:bg-gray-100 transition-colors duration-300">
+                    <Calendar className="w-5 h-5 text-gray-600" />
+                  </div>
+                </div>
+                <div className="w-full bg-gray-100 rounded-full h-1.5 mb-2">
+                  <div className="bg-gray-800 h-1.5 rounded-full transition-all duration-500 ease-out group-hover:bg-gray-900" 
+                       style={{width: `${Math.min((caseStudy.id === 'akamai' ? 18 : 
+                                                    caseStudy.id === 'slice' ? 12 : 
+                                                    caseStudy.id === 'razorpay' ? 24 : 15) / 24 * 100, 100)}%`}}>
+                  </div>
+                </div>
+                <div className="text-xs text-gray-500">Long-term partnership</div>
+              </div>
+            </div>
+
+            {/* Team Size */}
+            <div className="group relative">
+              <div className="bg-white rounded-2xl p-6 border border-gray-100 hover:border-gray-200 transition-all duration-300 hover:shadow-lg h-full flex flex-col">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="flex-1">
+                    <div className="text-sm font-medium text-gray-500 mb-1">Team Size</div>
+                    <div className="text-2xl font-bold text-gray-900 mb-2">
+                      <span className="text-3xl">{caseStudy.id === 'akamai' ? '12' : 
+                       caseStudy.id === 'slice' ? '8' : 
+                       caseStudy.id === 'razorpay' ? '15' : '10'}</span> people
+                    </div>
+                  </div>
+                  <div className="w-10 h-10 bg-gray-50 rounded-full flex items-center justify-center group-hover:bg-gray-100 transition-colors duration-300">
+                    <Users className="w-5 h-5 text-gray-600" />
+                  </div>
+                </div>
+                <div className="flex items-center space-x-1 mb-2">
+                  {Array.from({ length: Math.min(caseStudy.id === 'akamai' ? 12 : 
+                                                 caseStudy.id === 'slice' ? 8 : 
+                                                 caseStudy.id === 'razorpay' ? 15 : 10, 10) }).map((_, index) => (
+                    <div key={index} className="w-2 h-2 bg-gray-800 rounded-full group-hover:bg-gray-900 transition-colors duration-300 delay-75" 
+                         style={{animationDelay: `${index * 0.1}s`}}></div>
+                  ))}
+                  {(caseStudy.id === 'akamai' ? 12 : 
+                    caseStudy.id === 'slice' ? 8 : 
+                    caseStudy.id === 'razorpay' ? 15 : 10) > 10 && (
+                    <div className="text-xs text-gray-500 ml-1">+{(caseStudy.id === 'akamai' ? 12 : 
+                                                                      caseStudy.id === 'slice' ? 8 : 
+                                                                      caseStudy.id === 'razorpay' ? 15 : 10) - 10}</div>
+                  )}
+                </div>
+                <div className="text-xs text-gray-500">Dedicated developers</div>
+              </div>
+            </div>
+
+            {/* Technology Stack */}
+            <div className="group relative">
+              <div className="bg-white rounded-2xl p-6 border border-gray-100 hover:border-gray-200 transition-all duration-300 hover:shadow-lg h-full flex flex-col">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="flex-1">
+                    <div className="text-sm font-medium text-gray-500 mb-1">Technology Stack</div>
+                    <div className="text-2xl font-bold text-gray-900 mb-2">
+                      <span className="text-3xl">{caseStudy.techStack.length}</span> technologies
+                    </div>
+                  </div>
+                  <div className="w-10 h-10 bg-gray-50 rounded-full flex items-center justify-center group-hover:bg-gray-100 transition-colors duration-300">
+                    <Zap className="w-5 h-5 text-gray-600" />
+                  </div>
+                </div>
+                <div className="flex items-center gap-1 mb-2">
+                  {(caseStudy.id === 'akamai' ? ['C++', 'Python', 'K8s'] : 
+                    caseStudy.id === 'slice' ? ['Node.js', 'AWS', 'PostgreSQL'] : 
+                    caseStudy.id === 'razorpay' ? ['Java', 'React', 'AWS'] : ['Java', 'React', 'K8s']).map((tech, index) => (
+                    <div key={tech} className="flex items-center">
+                      <span className="px-1.5 py-0.5 bg-gray-50 text-xs font-medium text-gray-700 rounded group-hover:bg-gray-100 transition-colors duration-300">
+                        {tech}
+                      </span>
+                      {index < 2 && <div className="w-1 h-1 bg-gray-300 rounded-full mx-1"></div>}
+                    </div>
+                  ))}
+                </div>
+                <div className="text-xs text-gray-500">Modern tech stack</div>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
