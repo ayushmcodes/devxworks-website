@@ -39,7 +39,7 @@ const CaseStudyDetail = () => {
           <Button variant="secondary" size="sm" asChild className="bg-background/90 backdrop-blur-sm hover:bg-background">
             <Link to="/case-studies" className="flex items-center gap-2">
               <ArrowLeft className="w-4 h-4" />
-              Back to Case Studies
+              Back to Our Work
             </Link>
           </Button>
         </div>
@@ -167,7 +167,7 @@ const CaseStudyDetail = () => {
         </div>
       </section>
 
-      {/* Related Case Studies */}
+      {/* Related Our Work */}
       <section className="bg-secondary/30 py-16 px-4">
         <div className="container mx-auto max-w-6xl">
           <h2 className="text-3xl font-bold text-center text-foreground mb-12">
@@ -207,7 +207,7 @@ const CaseStudyDetail = () => {
                     </p>
                     <Button asChild variant="outline" size="sm" className="w-full">
                       <Link to={`/case-studies/${study.id}`}>
-                        View Case Study
+                        View Our Work
                       </Link>
                     </Button>
                   </CardContent>
@@ -234,7 +234,7 @@ const CaseStudyDetail = () => {
               </Button>
               <Button size="lg" variant="outline" asChild>
                 <Link to="/case-studies">
-                  View All Case Studies
+                  View All Our Work
                 </Link>
               </Button>
             </div>

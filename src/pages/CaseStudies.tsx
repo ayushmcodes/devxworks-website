@@ -1,124 +1,118 @@
 import { useEffect } from "react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { ArrowRight, ExternalLink } from "lucide-react";
-import { Link } from "react-router-dom";
-import { caseStudies } from "@/data/caseStudies";
+import { ArrowRight } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { scrollToContact } from "@/utils/scrollToContact";
+import akamaiImg from "@/assets/akamai-logo-og-default.avif";
+import jpmorganImg from "@/assets/jpmorgan-img.png";
+import razorpayImg from "@/assets/razorpayimg.jpeg";
+import sliceImg from "@/assets/sliceimg.webp";
 
 const CaseStudies = () => {
   useEffect(() => {
     // Scroll to top when component mounts
     window.scrollTo(0, 0);
   }, []);
+
+  const featuredWork = [
+    {
+      id: "akamai",
+      company: "Akamai",
+      image: akamaiImg,
+      title: "Global CDN Infrastructure Platform",
+      description: "Built high-performance content delivery and security solutions"
+    },
+    {
+      id: "netflix",
+      company: "Slice",
+      image: sliceImg,
+      title: "Streaming Infrastructure",
+      description: "Scalable video streaming and content delivery platform"
+    },
+    {
+      id: "razorpay",
+      company: "Razorpay", 
+      image: razorpayImg,
+      title: "Payment Gateway & Financial Services",
+      description: "Developed secure payment processing and financial management tools"
+    },
+    {
+      id: "jpmorgan",
+      company: "JPMorgan",
+      image: jpmorganImg, 
+      title: "Enterprise Banking Solutions",
+      description: "Created robust financial systems and trading platforms"
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
       
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary/5 via-background to-secondary/10 py-20 px-4">
-        <div className="container mx-auto max-w-6xl text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6 bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
-            Case Studies
-          </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            See how we help startups and enterprises build scalable, investor-ready products.
-          </p>
-        </div>
-      </section>
-
-      {/* Case Studies Grid */}
-      <section id="case-studies" className="py-20 px-4">
-        <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Our Success Stories
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              From fintech innovations to healthcare solutions, discover how we've helped our clients achieve their goals.
+      <section className="pt-8 pb-16 sm:pt-12 sm:pb-24 px-4">
+        <div className="container mx-auto max-w-7xl">
+          {/* Main Heading */}
+          <div className="mb-8">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight">
+              Driven by Detail
+              <br />
+              Focused on Results<span className="text-primary">.</span>
+            </h1>
+          </div>
+          
+          {/* Stats */}
+          <div className="mb-16">
+            <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-4xl leading-relaxed">
+            Every project is built with precision and a focus on results that actually move your business forward.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {caseStudies.map((study, index) => (
-              <Card key={study.id} className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-primary/20 bg-card/50 backdrop-blur-sm overflow-hidden">
-                {/* Image Header */}
-                <div className="relative h-48 overflow-hidden">
-                  <img 
-                    src={study.image} 
-                    alt={study.imageAlt}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-                  <Badge 
-                    variant="secondary" 
-                    className="absolute top-4 left-4 bg-background/90 backdrop-blur-sm text-primary border-primary/20"
-                  >
-                    {study.category}
-                  </Badge>
-                  <ExternalLink className="absolute top-4 right-4 w-5 h-5 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
-                </div>
+          {/* Featured Work Cards - Pinterest Style Masonry */}
+          <div className="columns-1 md:columns-2 lg:columns-3 xl:columns-4 gap-4 space-y-4">
+            {featuredWork.map((work, index) => {
+              // Define different card heights for masonry effect
+              const getCardHeight = (index: number) => {
+                const heights = ['h-64', 'h-80', 'h-72', 'h-96'];
+                return heights[index % heights.length];
+              };
 
-                <CardHeader className="space-y-4">
-                  <CardTitle className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
-                    {study.title}
-                  </CardTitle>
-                  <CardDescription className="text-muted-foreground leading-relaxed">
-                    {study.description}
-                  </CardDescription>
-                </CardHeader>
-                
-                <CardContent className="space-y-6">
-                  {/* Tech Stack Preview */}
-                  <div className="space-y-2">
-                    <h4 className="text-sm font-medium text-foreground">Tech Stack:</h4>
-                    <div className="flex flex-wrap gap-1">
-                      {study.techStack.slice(0, 4).map((tech) => (
-                        <Badge key={tech} variant="outline" className="text-xs">
-                          {tech}
-                        </Badge>
-                      ))}
-                      {study.techStack.length > 4 && (
-                        <Badge variant="outline" className="text-xs text-muted-foreground">
-                          +{study.techStack.length - 4} more
-                        </Badge>
-                      )}
-                    </div>
+              return (
+                <div 
+                  key={work.id}
+                  className={`group relative overflow-hidden rounded-2xl bg-card cursor-pointer transition-all duration-300 hover:shadow-[0_0_0_4px_white,_0_0_0_8px_black] break-inside-avoid mb-4 ${getCardHeight(index)}`}
+                >
+                  {/* Background Image Container */}
+                  <div className="w-full h-full overflow-hidden">
+                    <img 
+                      src={work.image}
+                      alt={`${work.company} project`}
+                      className={`w-full h-full ${work.id === 'razorpay' || work.id === 'jpmorgan' ? 'object-contain' : 'object-cover scale-90'}`}
+                    />
+                    {/* Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/20" />
                   </div>
 
-                  {/* Read More Button */}
-                  <Button asChild variant="default" className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                    <Link to={`/case-studies/${study.id}`} className="flex items-center gap-2">
-                      Read Full Case Study
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </Link>
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+                  {/* Content Overlay */}
+                  <div className="absolute inset-0 p-4 sm:p-6 flex flex-col justify-end">
+                    {/* Company Logo/Name - Hidden by default, visible on hover */}
+                    <div className="mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-1">
+                        {work.company}
+                      </h3>
+                      <p className="text-white/80 text-sm line-clamp-2 mb-2">
+                        {work.description}
+                      </p>
+                    </div>
 
-      {/* CTA Section */}
-      <section className="bg-gradient-to-br from-primary/5 to-secondary/10 py-20 px-4">
-        <div className="container mx-auto max-w-4xl text-center">
-          <div className="space-y-6">
-            <h2 className="text-3xl md:text-5xl font-bold text-foreground">
-              Have a project in mind?
-            </h2>
-            <p className="text-xl text-muted-foreground">
-              Let's build your success story.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-              <Button size="lg" variant="default" onClick={scrollToContact} className="flex items-center gap-2">
-                Start Your Project
-                <ArrowRight className="w-4 h-4" />
-              </Button>
-            </div>
+                    {/* CTA - Always visible */}
+                    <div className="flex items-center text-white group-hover:text-black transition-colors">
+                      <span className="font-bold mr-2 text-lg">Case study</span>
+                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
