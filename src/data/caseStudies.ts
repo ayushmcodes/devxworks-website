@@ -22,8 +22,8 @@ export const caseStudies: CaseStudy[] = [
   {
     id: "akamai",
     title: "Akamai – Global CDN Infrastructure Platform",
-    description: "Built high-performance content delivery and security solutions for one of the world's largest CDN providers.",
-    overview: "Akamai Technologies needed to enhance their global CDN infrastructure to handle exponential traffic growth and emerging security threats. We developed scalable solutions that improved performance while maintaining enterprise-grade security standards.",
+    description: "Enterprise-scale CDN infrastructure modernization with advanced distributed systems and real-time threat detection capabilities.",
+    overview: "Akamai's existing infrastructure was struggling under exponential traffic growth, requiring a complete architectural overhaul of their CDN platform while maintaining zero downtime across 300,000+ global servers. Our team architected next-generation edge computing solutions with advanced caching algorithms and automated security systems.",
     challenges: [
       "Managing traffic spikes across 300,000+ servers globally",
       "Real-time threat detection and mitigation at scale",
@@ -53,41 +53,41 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: "slice",
-    title: "Slice – Streaming Infrastructure Platform",
-    description: "Scalable video streaming and content delivery platform for high-quality media distribution.",
-    overview: "Slice required a robust streaming infrastructure capable of delivering high-quality video content to millions of users simultaneously while maintaining optimal performance across different devices and network conditions.",
+    title: "Slice – Quick Credit & Lending Platform",
+    description: "Advanced fintech platform for instant credit disbursement and intelligent loan management solutions.",
+    overview: "Slice required a robust fintech infrastructure capable of processing thousands of credit applications with real-time risk assessment while maintaining regulatory compliance and seamless banking integrations.",
     challenges: [
-      "Real-time video encoding and transcoding at scale",
-      "Adaptive bitrate streaming for various devices",
-      "Global content distribution optimization",
-      "Live streaming with minimal latency",
-      "Analytics and viewer engagement tracking"
+      "Real-time credit scoring and risk assessment at scale",
+      "Automated loan underwriting and approval workflows",
+      "Multi-bank integration and compliance management", 
+      "Instant credit disbursement with minimal latency",
+      "Advanced fraud detection and default prediction"
     ],
     approach: [
-      "Built microservices-based streaming architecture",
-      "Implemented adaptive bitrate streaming protocols",
-      "Created distributed video processing pipeline",
-      "Developed real-time analytics dashboard",
-      "Optimized CDN integration for global reach"
+      "Built microservices-based lending architecture",
+      "Implemented machine learning risk assessment models",
+      "Created automated underwriting and approval pipeline",
+      "Developed real-time credit monitoring dashboard",
+      "Optimized banking API integrations for instant disbursement"
     ],
     results: [
-      "Support for 10M+ concurrent viewers",
-      "40% reduction in buffering incidents",
-      "99.5% streaming uptime achieved",
-      "50% improvement in video start times",
-      "Scaled to serve content in 50+ countries"
+      "Process 50K+ credit applications monthly",
+      "90% faster loan approval times achieved",
+      "99.5% platform uptime maintained",
+      "60% reduction in default rates",
+      "Scaled to serve customers across 25+ cities"
     ],
-    techStack: ["Node.js", "FFmpeg", "AWS", "Redis", "PostgreSQL", "Docker", "Kubernetes", "HLS"],
-    category: "Media Technology",
+    techStack: ["Node.js", "Python", "AWS", "Redis", "PostgreSQL", "Docker", "Kubernetes", "ML"],
+    category: "Fintech",
     client: "Slice",
     image: sliceImg,
-    imageAlt: "Video streaming technology platform interface"
+    imageAlt: "Slice fintech credit and lending platform interface"
   },
   {
     id: "razorpay",
     title: "Razorpay – Payment Gateway & Financial Services",
-    description: "Developed secure payment processing and financial management tools for India's leading fintech unicorn.",
-    overview: "Razorpay needed to scale their payment infrastructure to handle millions of transactions daily while ensuring PCI compliance and building advanced financial products for businesses of all sizes.",
+    description: "Fault-tolerant payment infrastructure with advanced fraud detection and horizontally scalable transaction processing systems.",
+    overview: "Razorpay faced critical scalability bottlenecks in their payment processing system, requiring a complete rewrite to handle exponential transaction growth while meeting strict PCI compliance and regulatory requirements. Our fintech specialists architected an event-driven, horizontally scalable platform with advanced fraud detection algorithms.",
     challenges: [
       "Processing 100M+ transactions per month",
       "Multi-bank payment gateway integration",
@@ -118,8 +118,8 @@ export const caseStudies: CaseStudy[] = [
   {
     id: "jpmorgan",
     title: "JPMorgan – Enterprise Banking Solutions",
-    description: "Created robust financial systems and trading platforms for one of the world's largest investment banks.",
-    overview: "JPMorgan Chase needed to modernize their legacy trading systems and build new digital banking solutions to stay competitive in the rapidly evolving financial services landscape.",
+    description: "Cloud-native trading infrastructure with microservices architecture, real-time risk management, and sub-millisecond processing capabilities.",
+    overview: "JPMorgan's legacy trading systems were becoming obsolete, requiring modernization to cloud-native architecture while ensuring real-time processing capabilities for high-frequency trading and regulatory compliance. Our financial technology experts designed containerized microservices with advanced risk management and automated compliance systems.",
     challenges: [
       "Modernizing legacy trading systems",
       "Real-time risk management and compliance",

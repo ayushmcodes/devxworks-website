@@ -249,80 +249,104 @@ const CaseStudyDetail = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-0">
             
             {/* Problem Statement */}
-            <div className="bg-gray-50 p-8 lg:p-12 flex flex-col justify-start min-h-[400px]">
-              <div className="flex-1 flex flex-col justify-center">
-                <div className="mb-auto"></div>
-                <div className="space-y-8">
+            <div className="bg-gray-50 p-8 lg:p-12 min-h-[400px]">
+              <div className="h-full flex flex-col">
+                {/* Fixed Header Section */}
+                <div className="mb-8">
                   <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
                     The challenge<span className="text-primary">.</span>
                   </h2>
-                  <div className="space-y-6">
-                    <p className="text-lg text-gray-700 leading-relaxed">
-                      {caseStudy.overview}
-                    </p>
-                    <div className="space-y-3">
-                      {caseStudy.challenges.slice(0, 3).map((challenge, index) => (
-                        <div key={index} className="flex items-start gap-3">
-                          <div className="w-2 h-2 bg-gray-400 rounded-full mt-2.5 flex-shrink-0" />
-                          <span className="text-gray-700">{challenge}</span>
-                        </div>
-                      ))}
-                    </div>
+                </div>
+                
+                {/* Flexible Content Section */}
+                <div className="flex-1 flex flex-col justify-center space-y-6">
+                  <p className="text-lg text-gray-700 leading-relaxed">
+                    {caseStudy.id === 'akamai' ? 
+                      'Akamai\'s existing infrastructure was struggling under exponential traffic growth, requiring a complete architectural overhaul of their CDN platform while maintaining zero downtime across 300,000+ global servers.' :
+                    caseStudy.id === 'slice' ? 
+                      'Slice faced the challenge of building a robust fintech platform for instant credit disbursement and loan management while ensuring regulatory compliance, real-time risk assessment, and seamless integration with multiple banking partners.' :
+                    caseStudy.id === 'razorpay' ? 
+                      'Razorpay faced critical scalability bottlenecks in their payment processing system, requiring a complete rewrite to handle exponential transaction growth while meeting strict PCI compliance and regulatory requirements.' :
+                      'JPMorgan\'s legacy trading systems were becoming obsolete, requiring modernization to cloud-native architecture while ensuring real-time processing capabilities for high-frequency trading and regulatory compliance.'
+                    }
+                  </p>
+                  <div className="space-y-3">
+                    {caseStudy.challenges.slice(0, 3).map((challenge, index) => (
+                      <div key={index} className="flex items-start gap-3">
+                        <div className="w-2 h-2 bg-gray-400 rounded-full mt-2.5 flex-shrink-0" />
+                        <span className="text-gray-700">{challenge}</span>
+                      </div>
+                    ))}
                   </div>
                 </div>
-                <div className="mb-auto"></div>
               </div>
             </div>
 
             {/* Our Solution */}
-            <div className="bg-gradient-to-br from-primary to-primary/90 p-8 lg:p-12 flex flex-col justify-start min-h-[400px]">
-              <div className="flex-1 flex flex-col justify-center">
-                <div className="mb-auto"></div>
-                <div className="space-y-8">
+            <div className="bg-gradient-to-br from-primary to-primary/90 p-8 lg:p-12 min-h-[400px]">
+              <div className="h-full flex flex-col">
+                {/* Fixed Header Section */}
+                <div className="mb-8">
                   <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
                     The solution<span className="text-white/80">.</span>
                   </h2>
-                  <div className="space-y-6">
-                    <p className="text-lg text-white/90 leading-relaxed">
-                      {caseStudy.client} chose our expertise to tackle these complex challenges. We provided a comprehensive approach combining cutting-edge technology with proven methodologies.
-                    </p>
-                    <div className="space-y-3">
-                      {caseStudy.approach.slice(0, 3).map((approach, index) => (
-                        <div key={index} className="flex items-start gap-3">
-                          <CheckCircle className="w-5 h-5 text-white mt-0.5 flex-shrink-0" />
-                          <span className="text-white/90">{approach}</span>
-                        </div>
-                      ))}
-                    </div>
+                </div>
+                
+                {/* Flexible Content Section */}
+                <div className="flex-1 flex flex-col justify-center space-y-6">
+                  <p className="text-lg text-white/90 leading-relaxed">
+                    {caseStudy.id === 'akamai' ? 
+                      'We deployed a specialized team of 12 distributed systems engineers to architect a next-generation edge computing platform, implementing advanced caching algorithms, real-time analytics, and automated threat detection systems across their global infrastructure.' :
+                    caseStudy.id === 'slice' ? 
+                      'Our team of 8 fintech specialists architected a comprehensive credit platform using microservices, implementing advanced risk assessment algorithms, real-time loan processing engines, and automated underwriting systems with seamless banking API integrations.' :
+                    caseStudy.id === 'razorpay' ? 
+                      'We assembled a team of 15 fintech specialists to architect a fault-tolerant, horizontally scalable payment system using event-driven architecture, implementing advanced fraud detection algorithms and ensuring PCI DSS compliance throughout the platform.' :
+                      'Our 10-member team of financial technology experts designed a cloud-native trading infrastructure using containerized microservices, implementing real-time risk management systems and automated compliance reporting while ensuring sub-millisecond latency.'
+                    }
+                  </p>
+                  <div className="space-y-3">
+                    {caseStudy.approach.slice(0, 3).map((approach, index) => (
+                      <div key={index} className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-white mt-0.5 flex-shrink-0" />
+                        <span className="text-white/90">{approach}</span>
+                      </div>
+                    ))}
                   </div>
                 </div>
-                <div className="mb-auto"></div>
               </div>
             </div>
 
             {/* Outcome */}
-            <div className="bg-gray-900 p-8 lg:p-12 flex flex-col justify-start min-h-[400px]">
-              <div className="flex-1 flex flex-col justify-center">
-                <div className="mb-auto"></div>
-                <div className="space-y-8">
+            <div className="bg-gray-900 p-8 lg:p-12 min-h-[400px]">
+              <div className="h-full flex flex-col">
+                {/* Fixed Header Section */}
+                <div className="mb-8">
                   <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
                     The outcome<span className="text-primary">.</span>
                   </h2>
-                  <div className="space-y-6">
-                    <p className="text-lg text-gray-300 leading-relaxed">
-                      Our collaboration delivered exceptional results, exceeding expectations and establishing a foundation for continued growth and success.
-                    </p>
-                    <div className="space-y-4">
-                      {caseStudy.results.slice(0, 3).map((result, index) => (
-                        <div key={index} className="flex items-start gap-3">
-                          <TrendingUp className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
-                          <span className="text-white font-medium">{result}</span>
-                        </div>
-                      ))}
-                    </div>
+                </div>
+                
+                {/* Flexible Content Section */}
+                <div className="flex-1 flex flex-col justify-center space-y-6">
+                  <p className="text-lg text-gray-300 leading-relaxed">
+                    {caseStudy.id === 'akamai' ? 
+                      'The new infrastructure successfully handles 15% of global internet traffic with 50% improved performance, 99.99% uptime, and advanced security that blocks billions of attacks daily while reducing operational costs by 30%.' :
+                    caseStudy.id === 'slice' ? 
+                      'Slice\'s platform now processes thousands of credit applications daily with 90% faster loan approval times, 99.5% uptime, and 60% reduction in default rates through advanced AI-driven risk assessment, establishing them as a leading fintech lender.' :
+                    caseStudy.id === 'razorpay' ? 
+                      'The re-architected system now processes $50B+ annually with 99.99% success rate, 60% reduction in payment failures, and zero security breaches while enabling 8M+ businesses to accept digital payments seamlessly.' :
+                      'JPMorgan\'s modernized infrastructure achieves 99.99% availability, 50% faster trade settlements, processes $6 trillion daily, and has automated 90% of regulatory reporting while maintaining zero critical security incidents.'
+                    }
+                  </p>
+                  <div className="space-y-4">
+                    {caseStudy.results.slice(0, 3).map((result, index) => (
+                      <div key={index} className="flex items-start gap-3">
+                        <TrendingUp className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                        <span className="text-white font-medium">{result}</span>
+                      </div>
+                    ))}
                   </div>
                 </div>
-                <div className="mb-auto"></div>
               </div>
             </div>
 
