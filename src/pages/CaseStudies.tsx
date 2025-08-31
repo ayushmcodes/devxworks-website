@@ -94,8 +94,8 @@ const CaseStudies = () => {
 
                   {/* Content Overlay */}
                   <div className="absolute inset-0 p-4 sm:p-6 flex flex-col justify-end">
-                    {/* Company Logo/Name */}
-                    <div className="mb-3">
+                    {/* Company Logo/Name - Hidden by default, visible on hover */}
+                    <div className="mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-1">
                         {work.company}
                       </h3>
@@ -104,9 +104,9 @@ const CaseStudies = () => {
                       </p>
                     </div>
 
-                    {/* CTA */}
-                    <div className="flex items-center text-white group-hover:text-primary transition-colors">
-                      <span className="font-medium mr-2 text-base">Case study</span>
+                    {/* CTA - Always visible */}
+                    <div className="flex items-center text-white group-hover:text-black transition-colors">
+                      <span className="font-bold mr-2 text-lg">Case study</span>
                       <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                     </div>
                   </div>
