@@ -19,32 +19,28 @@ const CaseStudies = () => {
       company: "Akamai",
       image: devopsCloud,
       title: "Global CDN Infrastructure Platform",
-      description: "Built high-performance content delivery and security solutions",
-      size: "shape1" // reference size (standard)
+      description: "Built high-performance content delivery and security solutions"
     },
     {
       id: "netflix",
       company: "Netflix",
       image: aiSolutions,
       title: "Streaming Infrastructure",
-      description: "Scalable video streaming and content delivery platform",
-      size: "shape2" // smaller width
+      description: "Scalable video streaming and content delivery platform"
     },
     {
       id: "razorpay",
       company: "Razorpay", 
       image: fintechUpi,
       title: "Payment Gateway & Financial Services",
-      description: "Developed secure payment processing and financial management tools",
-      size: "shape1" // same as akamai
+      description: "Developed secure payment processing and financial management tools"
     },
     {
       id: "jpmorgan",
       company: "JPMorgan",
       image: backendInfrastructure, 
       title: "Enterprise Banking Solutions",
-      description: "Created robust financial systems and trading platforms",
-      size: "shape2" // smaller width
+      description: "Created robust financial systems and trading platforms"
     }
   ];
 
@@ -72,54 +68,46 @@ const CaseStudies = () => {
           </div>
 
           {/* Featured Work Cards - Pinterest Style Masonry */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 auto-rows-[200px] gap-4 lg:gap-6">
-            {featuredWork.map((work) => {
-              // Define different card sizes
-              const getSizeClasses = (size: string) => {
-                switch (size) {
-                  case 'shape1':
-                    return 'row-span-2 col-span-1 sm:col-span-2 lg:col-span-2'; // standard size (reference - akamai size)
-                  case 'shape2':
-                    return 'row-span-2 col-span-1 sm:col-span-1 lg:col-span-1'; // smaller width, same height
-                  default:
-                    return 'row-span-2 col-span-1 sm:col-span-2 lg:col-span-2';
-                }
+          <div className="columns-1 md:columns-2 lg:columns-3 xl:columns-4 gap-4 space-y-4">
+            {featuredWork.map((work, index) => {
+              // Define different card heights for masonry effect
+              const getCardHeight = (index: number) => {
+                const heights = ['h-64', 'h-80', 'h-72', 'h-96'];
+                return heights[index % heights.length];
               };
 
               return (
                 <div 
                   key={work.id}
-                  className={`group relative overflow-hidden rounded-2xl bg-card cursor-pointer transition-all duration-300 hover:shadow-[0_0_0_4px_white,_0_0_0_8px_black] ${getSizeClasses(work.size)}`}
+                  className={`group relative overflow-hidden rounded-2xl bg-card cursor-pointer transition-all duration-300 hover:shadow-[0_0_0_4px_white,_0_0_0_8px_black] break-inside-avoid mb-4 ${getCardHeight(index)}`}
                 >
-                  {/* Background Image */}
-                  <div className="w-full h-full overflow-hidden">
+                  {/* Background Image Container */}
+                  <div className="w-full h-full overflow-hidden bg-white/95 flex items-center justify-center p-6">
                     <img 
                       src={work.image}
                       alt={`${work.company} project`}
-                      className="w-full h-full object-cover"
+                      className="max-w-full max-h-32 w-auto h-auto object-contain"
                     />
                     {/* Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
                   </div>
 
                   {/* Content Overlay */}
-                  <div className={`absolute inset-0 ${work.size === 'shape2' ? 'p-3 sm:p-4' : 'p-4 sm:p-6'} flex flex-col justify-end`}>
+                  <div className="absolute inset-0 p-4 sm:p-6 flex flex-col justify-end">
                     {/* Company Logo/Name */}
                     <div className="mb-3">
-                      <h3 className={`font-bold text-white mb-1 ${work.size === 'shape2' ? 'text-base sm:text-lg' : 'text-lg sm:text-xl md:text-2xl'}`}>
+                      <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-1">
                         {work.company}
                       </h3>
-                      {(work.size === 'shape1') && (
-                        <p className="text-white/80 text-xs sm:text-sm line-clamp-2 mb-2">
-                          {work.description}
-                        </p>
-                      )}
+                      <p className="text-white/80 text-sm line-clamp-2 mb-2">
+                        {work.description}
+                      </p>
                     </div>
 
                     {/* CTA */}
                     <div className="flex items-center text-white group-hover:text-primary transition-colors">
-                      <span className={`font-medium mr-2 ${work.size === 'shape2' ? 'text-sm' : 'text-base'}`}>Case study</span>
-                      <ArrowRight className={`group-hover:translate-x-1 transition-transform ${work.size === 'shape2' ? 'w-4 h-4' : 'w-5 h-5'}`} />
+                      <span className="font-medium mr-2 text-base">Case study</span>
+                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                     </div>
                   </div>
                 </div>
