@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
-
 import { 
   Zap, 
   TrendingUp, 
@@ -19,6 +18,7 @@ import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { scrollToContact } from "@/utils/scrollToContact";
+import { useScrollAnimation, scrollAnimationVariants } from "@/hooks/use-scroll-animation";
 import heroWorkspace from "@/assets/hero-workspace.jpg";
 import storyInnovation from "@/assets/story-innovation.jpg";
 import missionGrowth from "@/assets/mission-growth.jpg";
@@ -30,7 +30,22 @@ const AboutUs = () => {
     window.scrollTo(0, 0);
   }, []);
 
-
+  // Scroll animation hooks for different sections
+  const { elementRef: storyRef, isVisible: storyVisible } = useScrollAnimation();
+  const { elementRef: metricsRef, isVisible: metricsVisible } = useScrollAnimation();
+  const { elementRef: missionRef, isVisible: missionVisible } = useScrollAnimation();
+  const { elementRef: ctaRef, isVisible: ctaVisible } = useScrollAnimation();
+  
+  // Individual animation hooks for metrics cards to create staggered effect
+  const { elementRef: metric1Ref, isVisible: metric1Visible } = useScrollAnimation({ threshold: 0.3 });
+  const { elementRef: metric2Ref, isVisible: metric2Visible } = useScrollAnimation({ threshold: 0.3 });
+  const { elementRef: metric3Ref, isVisible: metric3Visible } = useScrollAnimation({ threshold: 0.3 });
+  const { elementRef: metric4Ref, isVisible: metric4Visible } = useScrollAnimation({ threshold: 0.3 });
+  
+  // Animation hooks for mission/vision/approach individual sections
+  const { elementRef: missionCardRef, isVisible: missionCardVisible } = useScrollAnimation({ threshold: 0.5 });
+  const { elementRef: visionCardRef, isVisible: visionCardVisible } = useScrollAnimation({ threshold: 0.5 });
+  const { elementRef: approachCardRef, isVisible: approachCardVisible } = useScrollAnimation({ threshold: 0.5 });
 
   return (
     <div className="min-h-screen bg-background">
@@ -100,7 +115,14 @@ const AboutUs = () => {
       </section>
 
       {/* Our Story Section */}
-      <section className="py-20 px-4 bg-background">
+      <section 
+        ref={storyRef}
+        className={`py-20 px-4 bg-background ${scrollAnimationVariants.slideUpFade.transition} ${
+          storyVisible 
+            ? scrollAnimationVariants.slideUpFade.animate 
+            : scrollAnimationVariants.slideUpFade.initial
+        }`}
+      >
         <div className="container mx-auto max-w-7xl">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left Content - Story */}
@@ -125,7 +147,11 @@ const AboutUs = () => {
             </div>
             
             {/* Right Content - Story Image */}
-            <div className="flex justify-center lg:justify-end">
+            <div className={`flex justify-center lg:justify-end ${scrollAnimationVariants.slideRight.transition} ${
+              storyVisible 
+                ? `${scrollAnimationVariants.slideRight.animate} delay-300` 
+                : scrollAnimationVariants.slideRight.initial
+            }`}>
               <div className="w-full max-w-md lg:max-w-lg">
                 <img 
                   src={storyInnovation} 
@@ -139,7 +165,14 @@ const AboutUs = () => {
       </section>
 
       {/* Company Metrics Section */}
-      <section className="py-16 px-4">
+      <section 
+        ref={metricsRef}
+        className={`py-16 px-4 ${scrollAnimationVariants.slideUpFade.transition} ${
+          metricsVisible 
+            ? scrollAnimationVariants.slideUpFade.animate 
+            : scrollAnimationVariants.slideUpFade.initial
+        }`}
+      >
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
@@ -153,7 +186,14 @@ const AboutUs = () => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             
             {/* Projects Delivered */}
-            <div className="group relative">
+            <div 
+              ref={metric1Ref}
+              className={`group relative ${scrollAnimationVariants.slideUpFade.transition} ${
+                metric1Visible 
+                  ? scrollAnimationVariants.slideUpFade.animate 
+                  : scrollAnimationVariants.slideUpFade.initial
+              }`}
+            >
               <div className="bg-white rounded-2xl p-6 border border-gray-100 hover:border-gray-200 transition-all duration-300 hover:shadow-lg h-full flex flex-col">
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex-1">
@@ -176,7 +216,14 @@ const AboutUs = () => {
             </div>
 
             {/* Years Experience */}
-            <div className="group relative">
+            <div 
+              ref={metric2Ref}
+              className={`group relative ${scrollAnimationVariants.slideUpFadeDelay.transition} ${
+                metric2Visible 
+                  ? scrollAnimationVariants.slideUpFadeDelay.animate 
+                  : scrollAnimationVariants.slideUpFadeDelay.initial
+              }`}
+            >
               <div className="bg-white rounded-2xl p-6 border border-gray-100 hover:border-gray-200 transition-all duration-300 hover:shadow-lg h-full flex flex-col">
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex-1">
@@ -199,7 +246,14 @@ const AboutUs = () => {
             </div>
 
             {/* Happy Clients */}
-            <div className="group relative">
+            <div 
+              ref={metric3Ref}
+              className={`group relative ${scrollAnimationVariants.slideUpFadeDelayLong.transition} ${
+                metric3Visible 
+                  ? scrollAnimationVariants.slideUpFadeDelayLong.animate 
+                  : scrollAnimationVariants.slideUpFadeDelayLong.initial
+              }`}
+            >
               <div className="bg-white rounded-2xl p-6 border border-gray-100 hover:border-gray-200 transition-all duration-300 hover:shadow-lg h-full flex flex-col">
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex-1">
@@ -223,7 +277,14 @@ const AboutUs = () => {
             </div>
 
             {/* Success Rate */}
-            <div className="group relative">
+            <div 
+              ref={metric4Ref}
+              className={`group relative ${scrollAnimationVariants.slideUpFadeDelayLong.transition} ${
+                metric4Visible 
+                  ? `${scrollAnimationVariants.slideUpFadeDelayLong.animate} delay-700` 
+                  : scrollAnimationVariants.slideUpFadeDelayLong.initial
+              }`}
+            >
               <div className="bg-white rounded-2xl p-6 border border-gray-100 hover:border-gray-200 transition-all duration-300 hover:shadow-lg h-full flex flex-col">
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex-1">
@@ -252,12 +313,26 @@ const AboutUs = () => {
 
 
       {/* Problem-Solution-Outcome Style Section for Mission & Vision */}
-      <section className="py-16 px-4">
+      <section 
+        ref={missionRef}
+        className={`py-16 px-4 ${scrollAnimationVariants.slideUpFade.transition} ${
+          missionVisible 
+            ? scrollAnimationVariants.slideUpFade.animate 
+            : scrollAnimationVariants.slideUpFade.initial
+        }`}
+      >
         <div className="container mx-auto max-w-6xl">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-0">
             
             {/* Our Mission */}
-            <div className="bg-gray-50 p-8 lg:p-12 min-h-[400px]">
+            <div 
+              ref={missionCardRef}
+              className={`bg-gray-50 p-8 lg:p-12 min-h-[400px] ${scrollAnimationVariants.slideLeft.transition} ${
+                missionCardVisible 
+                  ? scrollAnimationVariants.slideLeft.animate 
+                  : scrollAnimationVariants.slideLeft.initial
+              }`}
+            >
               <div className="h-full flex flex-col">
                 {/* Fixed Header Section */}
                 <div className="mb-8">
@@ -291,7 +366,14 @@ const AboutUs = () => {
             </div>
 
             {/* Our Vision */}
-            <div className="bg-gradient-to-br from-primary to-primary/90 p-8 lg:p-12 min-h-[400px]">
+            <div 
+              ref={visionCardRef}
+              className={`bg-gradient-to-br from-primary to-primary/90 p-8 lg:p-12 min-h-[400px] ${scrollAnimationVariants.slideUpFade.transition} ${
+                visionCardVisible 
+                  ? `${scrollAnimationVariants.slideUpFade.animate} delay-200` 
+                  : scrollAnimationVariants.slideUpFade.initial
+              }`}
+            >
               <div className="h-full flex flex-col">
                 {/* Fixed Header Section */}
                 <div className="mb-8">
@@ -324,7 +406,14 @@ const AboutUs = () => {
         </div>
 
             {/* Our Approach */}
-            <div className="bg-gray-900 p-8 lg:p-12 min-h-[400px]">
+            <div 
+              ref={approachCardRef}
+              className={`bg-gray-900 p-8 lg:p-12 min-h-[400px] ${scrollAnimationVariants.slideRight.transition} ${
+                approachCardVisible 
+                  ? `${scrollAnimationVariants.slideRight.animate} delay-400` 
+                  : scrollAnimationVariants.slideRight.initial
+              }`}
+            >
               <div className="h-full flex flex-col">
                 {/* Fixed Header Section */}
                 <div className="mb-8">
@@ -361,7 +450,14 @@ const AboutUs = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-br from-gray-900 via-black to-gray-800 py-16 px-4">
+      <section 
+        ref={ctaRef}
+        className={`bg-gradient-to-br from-gray-900 via-black to-gray-800 py-16 px-4 ${scrollAnimationVariants.slideUpFade.transition} ${
+          ctaVisible 
+            ? scrollAnimationVariants.slideUpFade.animate 
+            : scrollAnimationVariants.slideUpFade.initial
+        }`}
+      >
         <div className="container mx-auto max-w-4xl text-center">
           <div className="space-y-6">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
@@ -370,7 +466,11 @@ const AboutUs = () => {
             <p className="text-xl md:text-2xl text-primary font-semibold">
               Let's turn your vision into reality.
             </p>
-            <div className="mt-8">
+            <div className={`mt-8 ${scrollAnimationVariants.scaleUp.transition} ${
+              ctaVisible 
+                ? `${scrollAnimationVariants.scaleUp.animate} delay-300` 
+                : scrollAnimationVariants.scaleUp.initial
+            }`}>
               <Button 
                 size="lg" 
                 onClick={scrollToContact}
