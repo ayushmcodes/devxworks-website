@@ -1,8 +1,9 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowLeft, ArrowRight, CheckCircle, Target, Lightbulb, TrendingUp, Code } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { ArrowLeft, ArrowRight, CheckCircle, Target, Lightbulb, TrendingUp, Code, Home, ChevronRight } from "lucide-react";
 import { Link, useParams, Navigate } from "react-router-dom";
 import { caseStudies } from "@/data/caseStudies";
 import Navigation from "@/components/Navigation";
@@ -10,10 +11,13 @@ import Footer from "@/components/Footer";
 import { scrollToContact } from "@/utils/scrollToContact";
 
 const CaseStudyDetail = () => {
+  const [email, setEmail] = useState("");
+  
   useEffect(() => {
     // Scroll to top when component mounts
     window.scrollTo(0, 0);
   }, []);
+  
   const { id } = useParams<{ id: string }>();
   const caseStudy = caseStudies.find(study => study.id === id);
 
@@ -21,48 +25,85 @@ const CaseStudyDetail = () => {
     return <Navigate to="/case-studies" replace />;
   }
 
+  const handleEmailSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Handle email submission here
+    console.log("Email submitted:", email);
+    // You can integrate with your backend or email service
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
       
-      {/* Hero Image */}
-      <section className="relative h-64 md:h-80 overflow-hidden">
-        <img 
-          src={caseStudy.image} 
-          alt={caseStudy.imageAlt}
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+      {/* Hero Section with Background Image */}
+      <section 
+        className="relative min-h-screen flex items-center justify-start px-4 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url(${caseStudy.image})`,
+        }}
+      >
+        <div className="absolute inset-0 bg-black/50" />
         
-        {/* Back Button - Floating on image */}
-        <div className="absolute top-6 left-4 md:left-8">
-          <Button variant="secondary" size="sm" asChild className="bg-background/90 backdrop-blur-sm hover:bg-background">
-            <Link to="/case-studies" className="flex items-center gap-2">
-              <ArrowLeft className="w-4 h-4" />
-              Back to Our Work
-            </Link>
-          </Button>
-        </div>
-      </section>
+        {/* Content Container */}
+        <div className="relative z-10 container mx-auto max-w-7xl">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left Content */}
+            <div className="text-white">
+              {/* Breadcrumb */}
+              <nav className="flex items-center space-x-2 text-sm mb-8">
+                <Link to="/" className="text-white/80 hover:text-white transition-colors flex items-center gap-1">
+                  <Home className="w-4 h-4" />
+                  Home
+                </Link>
+                <ChevronRight className="w-4 h-4 text-white/60" />
+                <Link to="/case-studies" className="text-white/80 hover:text-white transition-colors">
+                  Our Work
+                </Link>
+                <ChevronRight className="w-4 h-4 text-white/60" />
+                <span className="text-white">{caseStudy.client}</span>
+              </nav>
 
-      {/* Header */}
-      <section className="bg-gradient-to-br from-primary/5 via-background to-secondary/10 py-12 px-4">
-        <div className="container mx-auto max-w-4xl">
-          <div className="space-y-6">
-            <div className="flex flex-wrap items-center gap-4">
-              <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20">
-                {caseStudy.category}
-              </Badge>
-              <span className="text-sm text-muted-foreground">{caseStudy.client}</span>
+              {/* Subtitle */}
+              <div className="mb-6">
+                <p className="text-sm tracking-widest uppercase text-white/80 font-semibold">
+                  {caseStudy.client} Case Study - {caseStudy.category}
+                </p>
+              </div>
+
+              {/* Main Title */}
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight">
+                {caseStudy.title.split(' – ')[1] || caseStudy.title}
+              </h1>
             </div>
-            
-            <h1 className="text-3xl md:text-5xl font-bold text-foreground leading-tight">
-              {caseStudy.title}
-            </h1>
-            
-            <p className="text-xl text-muted-foreground leading-relaxed">
-              {caseStudy.description}
-            </p>
+
+            {/* Right Content - Email Capture Form */}
+            <div className="lg:justify-self-end w-full max-w-md">
+              <div className="bg-white rounded-2xl p-8 shadow-2xl">
+                <h3 className="text-2xl font-semibold text-gray-900 mb-4">
+                  Get this case study in PDF to your inbox.
+                </h3>
+                
+                <form onSubmit={handleEmailSubmit} className="space-y-4">
+                  <div>
+                    <Input
+                      type="email"
+                      placeholder="Your email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-base"
+                    />
+                  </div>
+                  <Button 
+                    type="submit"
+                    className="w-full py-3 bg-primary hover:bg-primary/90 text-white font-semibold rounded-lg text-base"
+                  >
+                    Send
+                  </Button>
+                </form>
+              </div>
+            </div>
           </div>
         </div>
       </section>

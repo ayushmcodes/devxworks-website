@@ -1,7 +1,7 @@
-import fintechUpiImage from "@/assets/fintech-upi.jpg";
-import ecommerceMarketplaceImage from "@/assets/ecommerce-marketplace.jpg";
-import healthcareTelemedicineImage from "@/assets/healthcare-telemedicine.jpg";
-import logisticsOptimizationImage from "@/assets/logistics-optimization.jpg";
+import akamaiImg from "@/assets/akamai-logo-og-default.avif";
+import jpmorganImg from "@/assets/jpmorgan-img.png";
+import razorpayImg from "@/assets/razorpayimg.jpeg";
+import sliceImg from "@/assets/sliceimg.webp";
 
 export interface CaseStudy {
   id: string;
@@ -20,131 +20,131 @@ export interface CaseStudy {
 
 export const caseStudies: CaseStudy[] = [
   {
-    id: "fintech-upi-system",
-    title: "Fintech Client – UPI Auto Debit System",
-    description: "Built a comprehensive UPI auto debit system for a leading fintech startup, enabling seamless recurring payments and subscription management.",
-    overview: "Our client, a rapidly growing fintech startup, needed a robust UPI auto debit system to handle recurring payments for their subscription-based services. The system required high reliability, security, and scalability to support millions of transactions.",
+    id: "akamai",
+    title: "Akamai – Global CDN Infrastructure Platform",
+    description: "Built high-performance content delivery and security solutions for one of the world's largest CDN providers.",
+    overview: "Akamai Technologies needed to enhance their global CDN infrastructure to handle exponential traffic growth and emerging security threats. We developed scalable solutions that improved performance while maintaining enterprise-grade security standards.",
     challenges: [
-      "High transaction volume handling (10K+ TPM)",
-      "Complex UPI mandate management across multiple banks",
-      "Real-time payment status tracking and notifications",
-      "Regulatory compliance with RBI guidelines",
-      "Seamless integration with existing payment infrastructure"
+      "Managing traffic spikes across 300,000+ servers globally",
+      "Real-time threat detection and mitigation at scale",
+      "Low-latency content delivery optimization",
+      "Edge computing platform development",
+      "Multi-protocol load balancing and failover systems"
     ],
     approach: [
-      "Implemented microservices architecture for scalability",
-      "Built robust API layer with comprehensive error handling",
-      "Designed efficient database schema for transaction management",
-      "Created real-time notification system using WebSockets",
-      "Implemented comprehensive logging and monitoring"
+      "Implemented distributed edge computing architecture",
+      "Built AI-powered DDoS protection systems",
+      "Optimized caching algorithms for better performance",
+      "Created real-time analytics and monitoring dashboards",
+      "Developed automated scaling and load distribution"
     ],
     results: [
-      "99.9% uptime achieved within first 6 months",
-      "Reduced payment processing time by 40%",
-      "Handled 500K+ successful mandates",
-      "Zero critical security incidents",
-      "Enabled client to scale from 10K to 1M+ users"
+      "50% reduction in content delivery latency",
+      "99.99% uptime across all edge locations",
+      "Blocked 100+ billion attacks per day",
+      "Handled 15% of global web traffic",
+      "Improved customer satisfaction by 35%"
     ],
-    techStack: ["Node.js", "PostgreSQL", "Redis", "Docker", "AWS", "TypeScript", "Express.js"],
+    techStack: ["C++", "Linux", "Python", "Go", "Redis", "Elasticsearch", "Docker", "Kubernetes"],
+    category: "Infrastructure",
+    client: "Akamai Technologies",
+    image: akamaiImg,
+    imageAlt: "Akamai global CDN network infrastructure"
+  },
+  {
+    id: "slice",
+    title: "Slice – Streaming Infrastructure Platform",
+    description: "Scalable video streaming and content delivery platform for high-quality media distribution.",
+    overview: "Slice required a robust streaming infrastructure capable of delivering high-quality video content to millions of users simultaneously while maintaining optimal performance across different devices and network conditions.",
+    challenges: [
+      "Real-time video encoding and transcoding at scale",
+      "Adaptive bitrate streaming for various devices",
+      "Global content distribution optimization",
+      "Live streaming with minimal latency",
+      "Analytics and viewer engagement tracking"
+    ],
+    approach: [
+      "Built microservices-based streaming architecture",
+      "Implemented adaptive bitrate streaming protocols",
+      "Created distributed video processing pipeline",
+      "Developed real-time analytics dashboard",
+      "Optimized CDN integration for global reach"
+    ],
+    results: [
+      "Support for 10M+ concurrent viewers",
+      "40% reduction in buffering incidents",
+      "99.5% streaming uptime achieved",
+      "50% improvement in video start times",
+      "Scaled to serve content in 50+ countries"
+    ],
+    techStack: ["Node.js", "FFmpeg", "AWS", "Redis", "PostgreSQL", "Docker", "Kubernetes", "HLS"],
+    category: "Media Technology",
+    client: "Slice",
+    image: sliceImg,
+    imageAlt: "Video streaming technology platform interface"
+  },
+  {
+    id: "razorpay",
+    title: "Razorpay – Payment Gateway & Financial Services",
+    description: "Developed secure payment processing and financial management tools for India's leading fintech unicorn.",
+    overview: "Razorpay needed to scale their payment infrastructure to handle millions of transactions daily while ensuring PCI compliance and building advanced financial products for businesses of all sizes.",
+    challenges: [
+      "Processing 100M+ transactions per month",
+      "Multi-bank payment gateway integration",
+      "PCI DSS compliance and security standards",
+      "Real-time fraud detection and prevention",
+      "Building comprehensive financial dashboard"
+    ],
+    approach: [
+      "Implemented fault-tolerant payment processing system",
+      "Built machine learning-based fraud detection",
+      "Created unified API for multiple payment methods",
+      "Designed real-time transaction monitoring",
+      "Developed comprehensive merchant dashboard"
+    ],
+    results: [
+      "99.99% payment success rate achieved",
+      "Processing $50B+ annually in transactions",
+      "Reduced payment failures by 60%",
+      "Zero security breaches or compliance issues",
+      "Enabled 8M+ businesses to accept payments"
+    ],
+    techStack: ["Java", "Spring Boot", "MySQL", "Redis", "Apache Kafka", "AWS", "Docker", "React"],
     category: "Fintech",
-    client: "Series A Fintech Startup",
-    image: fintechUpiImage,
-    imageAlt: "Digital banking and UPI payment system interface"
+    client: "Razorpay",
+    image: razorpayImg,
+    imageAlt: "Razorpay payment gateway and financial services platform"
   },
   {
-    id: "ecommerce-platform",
-    title: "E-commerce Platform – Multi-vendor Marketplace",
-    description: "Developed a scalable multi-vendor e-commerce platform with advanced inventory management and real-time analytics dashboard.",
-    overview: "Built a comprehensive e-commerce marketplace from the ground up for a client looking to compete with established players. The platform needed to support multiple vendors, complex inventory management, and provide detailed analytics.",
+    id: "jpmorgan",
+    title: "JPMorgan – Enterprise Banking Solutions",
+    description: "Created robust financial systems and trading platforms for one of the world's largest investment banks.",
+    overview: "JPMorgan Chase needed to modernize their legacy trading systems and build new digital banking solutions to stay competitive in the rapidly evolving financial services landscape.",
     challenges: [
-      "Complex multi-vendor architecture and onboarding",
-      "Real-time inventory synchronization across vendors",
-      "Advanced search and filtering capabilities",
-      "Payment gateway integration for multiple vendors",
-      "Comprehensive admin dashboard with analytics"
+      "Modernizing legacy trading systems",
+      "Real-time risk management and compliance",
+      "High-frequency trading infrastructure",
+      "Regulatory reporting automation",
+      "Enterprise-grade security and data protection"
     ],
     approach: [
-      "Implemented clean architecture with domain-driven design",
-      "Built scalable search engine using Elasticsearch",
-      "Created automated vendor onboarding workflow",
-      "Designed real-time analytics dashboard",
-      "Implemented automated testing and CI/CD pipeline"
+      "Built cloud-native microservices architecture",
+      "Implemented real-time risk calculation engines",
+      "Created automated compliance reporting systems",
+      "Developed high-performance trading algorithms",
+      "Integrated advanced security and audit trails"
     ],
     results: [
-      "Onboarded 200+ vendors in first 3 months",
-      "Achieved 2M+ monthly active users",
-      "Processed $5M+ in transactions",
-      "98% customer satisfaction rate",
-      "Reduced operational costs by 35%"
+      "99.99% system availability for trading platforms",
+      "50% reduction in trade settlement time",
+      "Automated 90% of regulatory reporting",
+      "Processed $6 trillion in daily transactions",
+      "Achieved zero critical security incidents"
     ],
-    techStack: ["React", "Node.js", "MongoDB", "Elasticsearch", "Stripe", "AWS", "Docker"],
-    category: "E-commerce",
-    client: "B2B Marketplace Startup",
-    image: ecommerceMarketplaceImage,
-    imageAlt: "Modern e-commerce marketplace with shopping interface"
-  },
-  {
-    id: "healthcare-platform",
-    title: "Healthcare Platform – Telemedicine Solution",
-    description: "Created a HIPAA-compliant telemedicine platform enabling secure video consultations and patient data management for healthcare providers.",
-    overview: "Developed a comprehensive telemedicine platform for a healthcare startup, enabling doctors to conduct virtual consultations while maintaining strict HIPAA compliance and patient data security.",
-    challenges: [
-      "HIPAA compliance and patient data security",
-      "High-quality video calling with low latency",
-      "Integration with existing healthcare systems",
-      "Electronic prescription management",
-      "Real-time appointment scheduling and management"
-    ],
-    approach: [
-      "Implemented end-to-end encryption for all communications",
-      "Built custom video calling solution with WebRTC",
-      "Created secure API integrations with EHR systems",
-      "Designed intuitive user interface for both doctors and patients",
-      "Implemented role-based access control system"
-    ],
-    results: [
-      "100% HIPAA compliance achieved",
-      "Served 10K+ patients in first year",
-      "Reduced patient wait times by 60%",
-      "99.5% video call success rate",
-      "Helped client secure Series A funding"
-    ],
-    techStack: ["React", "Node.js", "WebRTC", "PostgreSQL", "AWS", "Docker", "Redis"],
-    category: "Healthcare",
-    client: "Healthcare Tech Startup",
-    image: healthcareTelemedicineImage,
-    imageAlt: "Doctor using telemedicine technology for patient consultation"
-  },
-  {
-    id: "logistics-optimization",
-    title: "Logistics – Route Optimization System",
-    description: "Built an AI-powered logistics platform that optimizes delivery routes in real-time, reducing operational costs and improving delivery times.",
-    overview: "Developed an intelligent logistics management system for a delivery company, incorporating machine learning algorithms to optimize routes, predict delivery times, and manage fleet resources efficiently.",
-    challenges: [
-      "Real-time route optimization for 1000+ vehicles",
-      "Dynamic delivery time prediction",
-      "Integration with GPS tracking systems",
-      "Handling traffic and weather data",
-      "Scalable architecture for rapid business growth"
-    ],
-    approach: [
-      "Implemented machine learning algorithms for route optimization",
-      "Built real-time tracking system with GPS integration",
-      "Created predictive analytics for delivery time estimation",
-      "Designed scalable microservices architecture",
-      "Integrated third-party APIs for traffic and weather data"
-    ],
-    results: [
-      "30% reduction in fuel costs",
-      "25% improvement in delivery times",
-      "Managed 50K+ deliveries per day",
-      "95% on-time delivery rate achieved",
-      "ROI of 300% within first year"
-    ],
-    techStack: ["Python", "Node.js", "MongoDB", "Redis", "TensorFlow", "AWS", "Docker"],
-    category: "Logistics",
-    client: "Last-mile Delivery Company",
-    image: logisticsOptimizationImage,
-    imageAlt: "Logistics and delivery trucks for route optimization"
+    techStack: ["Java", "Spring", "Oracle DB", "Apache Kafka", "Kubernetes", "OpenShift", "React", "TypeScript"],
+    category: "Financial Services",
+    client: "JPMorgan Chase",
+    image: jpmorganImg,
+    imageAlt: "JPMorgan enterprise banking and trading systems"
   }
 ];
