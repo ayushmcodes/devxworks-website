@@ -249,246 +249,83 @@ const CaseStudyDetail = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-0">
             
             {/* Problem Statement */}
-            <div className="bg-gray-50 p-8 lg:p-12 flex flex-col justify-center min-h-[400px]">
-              <div>
-                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8 leading-tight">
-                  The challenge<span className="text-primary">.</span>
-                </h2>
-                <div className="space-y-6">
-                  <p className="text-lg text-gray-700 leading-relaxed">
-                    {caseStudy.overview}
-                  </p>
-                  <div className="space-y-3">
-                    {caseStudy.challenges.slice(0, 3).map((challenge, index) => (
-                      <div key={index} className="flex items-start gap-3">
-                        <div className="w-2 h-2 bg-gray-400 rounded-full mt-2.5 flex-shrink-0" />
-                        <span className="text-gray-700">{challenge}</span>
-                      </div>
-                    ))}
+            <div className="bg-gray-50 p-8 lg:p-12 flex flex-col justify-start min-h-[400px]">
+              <div className="flex-1 flex flex-col justify-center">
+                <div className="mb-auto"></div>
+                <div className="space-y-8">
+                  <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
+                    The challenge<span className="text-primary">.</span>
+                  </h2>
+                  <div className="space-y-6">
+                    <p className="text-lg text-gray-700 leading-relaxed">
+                      {caseStudy.overview}
+                    </p>
+                    <div className="space-y-3">
+                      {caseStudy.challenges.slice(0, 3).map((challenge, index) => (
+                        <div key={index} className="flex items-start gap-3">
+                          <div className="w-2 h-2 bg-gray-400 rounded-full mt-2.5 flex-shrink-0" />
+                          <span className="text-gray-700">{challenge}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
+                <div className="mb-auto"></div>
               </div>
             </div>
 
             {/* Our Solution */}
-            <div className="bg-gradient-to-br from-primary to-primary/90 p-8 lg:p-12 flex flex-col justify-center min-h-[400px]">
-              <div>
-                <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 leading-tight">
-                  The solution<span className="text-white/80">.</span>
-                </h2>
-                <div className="space-y-6">
-                  <p className="text-lg text-white/90 leading-relaxed">
-                    {caseStudy.client} chose our expertise to tackle these complex challenges. We provided a comprehensive approach combining cutting-edge technology with proven methodologies.
-                  </p>
-                  <div className="space-y-3">
-                    {caseStudy.approach.slice(0, 3).map((approach, index) => (
-                      <div key={index} className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 text-white mt-0.5 flex-shrink-0" />
-                        <span className="text-white/90">{approach}</span>
-                      </div>
-                    ))}
+            <div className="bg-gradient-to-br from-primary to-primary/90 p-8 lg:p-12 flex flex-col justify-start min-h-[400px]">
+              <div className="flex-1 flex flex-col justify-center">
+                <div className="mb-auto"></div>
+                <div className="space-y-8">
+                  <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
+                    The solution<span className="text-white/80">.</span>
+                  </h2>
+                  <div className="space-y-6">
+                    <p className="text-lg text-white/90 leading-relaxed">
+                      {caseStudy.client} chose our expertise to tackle these complex challenges. We provided a comprehensive approach combining cutting-edge technology with proven methodologies.
+                    </p>
+                    <div className="space-y-3">
+                      {caseStudy.approach.slice(0, 3).map((approach, index) => (
+                        <div key={index} className="flex items-start gap-3">
+                          <CheckCircle className="w-5 h-5 text-white mt-0.5 flex-shrink-0" />
+                          <span className="text-white/90">{approach}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
+                <div className="mb-auto"></div>
               </div>
             </div>
 
             {/* Outcome */}
-            <div className="bg-gray-900 p-8 lg:p-12 flex flex-col justify-center min-h-[400px]">
-              <div>
-                <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 leading-tight">
-                  The outcome<span className="text-primary">.</span>
-                </h2>
-                <div className="space-y-6">
-                  <p className="text-lg text-gray-300 leading-relaxed">
-                    Our collaboration delivered exceptional results, exceeding expectations and establishing a foundation for continued growth and success.
-                  </p>
-                  <div className="space-y-4">
-                    {caseStudy.results.slice(0, 3).map((result, index) => (
-                      <div key={index} className="flex items-start gap-3">
-                        <TrendingUp className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
-                        <span className="text-white font-medium">{result}</span>
-                      </div>
-                    ))}
+            <div className="bg-gray-900 p-8 lg:p-12 flex flex-col justify-start min-h-[400px]">
+              <div className="flex-1 flex flex-col justify-center">
+                <div className="mb-auto"></div>
+                <div className="space-y-8">
+                  <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
+                    The outcome<span className="text-primary">.</span>
+                  </h2>
+                  <div className="space-y-6">
+                    <p className="text-lg text-gray-300 leading-relaxed">
+                      Our collaboration delivered exceptional results, exceeding expectations and establishing a foundation for continued growth and success.
+                    </p>
+                    <div className="space-y-4">
+                      {caseStudy.results.slice(0, 3).map((result, index) => (
+                        <div key={index} className="flex items-start gap-3">
+                          <TrendingUp className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                          <span className="text-white font-medium">{result}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
+                <div className="mb-auto"></div>
               </div>
             </div>
 
-          </div>
-        </div>
-      </section>
-
-      {/* Main Content */}
-      <section className="py-16 px-4">
-        <div className="container mx-auto max-w-4xl space-y-16">
-          
-          {/* Project Overview */}
-          <Card className="border-2 border-primary/10 bg-gradient-to-br from-primary/5 to-transparent">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-3 text-2xl">
-                <Target className="w-6 h-6 text-primary" />
-                Project Overview
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground leading-relaxed text-lg">
-                {caseStudy.overview}
-              </p>
-            </CardContent>
-          </Card>
-
-          {/* Challenges */}
-          <Card className="border-2 border-orange-200 bg-gradient-to-br from-orange-50/50 to-transparent">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-3 text-2xl">
-                <Lightbulb className="w-6 h-6 text-orange-600" />
-                Challenges
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <ul className="space-y-4">
-                {caseStudy.challenges.map((challenge, index) => (
-                  <li key={index} className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-orange-600 rounded-full mt-2.5 flex-shrink-0" />
-                    <span className="text-muted-foreground leading-relaxed">{challenge}</span>
-                  </li>
-                ))}
-              </ul>
-            </CardContent>
-          </Card>
-
-          {/* Our Approach */}
-          <Card className="border-2 border-blue-200 bg-gradient-to-br from-blue-50/50 to-transparent">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-3 text-2xl">
-                <Code className="w-6 h-6 text-blue-600" />
-                Our Approach
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <ul className="space-y-4">
-                {caseStudy.approach.map((approach, index) => (
-                  <li key={index} className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
-                    <span className="text-muted-foreground leading-relaxed">{approach}</span>
-                  </li>
-                ))}
-              </ul>
-            </CardContent>
-          </Card>
-
-          {/* Results */}
-          <Card className="border-2 border-green-200 bg-gradient-to-br from-green-50/50 to-transparent">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-3 text-2xl">
-                <TrendingUp className="w-6 h-6 text-green-600" />
-                Results
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <ul className="space-y-4">
-                {caseStudy.results.map((result, index) => (
-                  <li key={index} className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
-                    <span className="text-muted-foreground leading-relaxed font-medium">{result}</span>
-                  </li>
-                ))}
-              </ul>
-            </CardContent>
-          </Card>
-
-          {/* Tech Stack */}
-          <Card className="border-2 border-purple-200 bg-gradient-to-br from-purple-50/50 to-transparent">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-3 text-2xl">
-                <Code className="w-6 h-6 text-purple-600" />
-                Tech Stack
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="flex flex-wrap gap-3">
-                {caseStudy.techStack.map((tech) => (
-                  <Badge key={tech} variant="outline" className="text-sm py-2 px-4 border-purple-200 text-purple-700 bg-purple-50/50">
-                    {tech}
-                  </Badge>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
-
-      {/* Related Our Work */}
-      <section className="bg-secondary/30 py-16 px-4">
-        <div className="container mx-auto max-w-6xl">
-          <h2 className="text-3xl font-bold text-center text-foreground mb-12">
-            More Success Stories
-          </h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {caseStudies
-              .filter(study => study.id !== caseStudy.id)
-              .slice(0, 3)
-              .map((study) => (
-                <Card key={study.id} className="group hover:shadow-lg transition-all duration-300 bg-card overflow-hidden">
-                  {/* Small Image */}
-                  <div className="relative h-32 overflow-hidden">
-                    <img 
-                      src={study.image} 
-                      alt={study.imageAlt}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-                    <Badge 
-                      variant="secondary" 
-                      className="absolute top-2 left-2 bg-background/90 backdrop-blur-sm text-primary border-primary/20 text-xs"
-                    >
-                      {study.category}
-                    </Badge>
-                  </div>
-                  
-                  <CardHeader>
-                    <CardTitle className="text-lg group-hover:text-primary transition-colors">
-                      {study.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground text-sm mb-4 line-clamp-3">
-                      {study.description}
-                    </p>
-                    <Button asChild variant="outline" size="sm" className="w-full">
-                      <Link to={`/case-studies/${study.id}`}>
-                        View Our Work
-                      </Link>
-                    </Button>
-                  </CardContent>
-                </Card>
-              ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="bg-gradient-to-br from-primary/5 to-secondary/10 py-20 px-4">
-        <div className="container mx-auto max-w-4xl text-center">
-          <div className="space-y-6">
-            <h2 className="text-3xl md:text-5xl font-bold text-foreground">
-              Ready to start your project?
-            </h2>
-            <p className="text-xl text-muted-foreground">
-              Let's discuss how we can help you achieve similar results.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-              <Button size="lg" variant="default" onClick={scrollToContact} className="flex items-center gap-2">
-                Get Started
-                <ArrowRight className="w-4 h-4" />
-              </Button>
-              <Button size="lg" variant="outline" asChild>
-                <Link to="/case-studies">
-                  View All Our Work
-                </Link>
-              </Button>
-            </div>
           </div>
         </div>
       </section>
