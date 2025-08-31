@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Input } from "@/components/ui/input";
+
 import { ArrowLeft, ArrowRight, CheckCircle, Target, Lightbulb, TrendingUp, Code, Home, ChevronRight, Calendar, Users, Zap } from "lucide-react";
 import { Link, useParams, Navigate } from "react-router-dom";
 import { caseStudies } from "@/data/caseStudies";
@@ -11,8 +11,6 @@ import Footer from "@/components/Footer";
 import { scrollToContact } from "@/utils/scrollToContact";
 
 const CaseStudyDetail = () => {
-  const [email, setEmail] = useState("");
-  
   useEffect(() => {
     // Scroll to top when component mounts
     window.scrollTo(0, 0);
@@ -24,13 +22,6 @@ const CaseStudyDetail = () => {
   if (!caseStudy) {
     return <Navigate to="/case-studies" replace />;
   }
-
-  const handleEmailSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle email submission here
-    console.log("Email submitted:", email);
-    // You can integrate with your backend or email service
-  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -74,33 +65,7 @@ const CaseStudyDetail = () => {
               </h1>
             </div>
 
-            {/* Right Content - Email Capture Form */}
-            <div className="lg:justify-self-end w-full max-w-md">
-              <div className="bg-white rounded-2xl p-8 shadow-2xl">
-                <h3 className="text-2xl font-semibold text-gray-900 mb-4">
-                  Get this case study in PDF to your inbox.
-                </h3>
-                
-                <form onSubmit={handleEmailSubmit} className="space-y-4">
-                  <div>
-                    <Input
-                      type="email"
-                      placeholder="Your email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-base"
-                    />
-                  </div>
-                  <Button 
-                    type="submit"
-                    className="w-full py-3 bg-primary hover:bg-primary/90 text-white font-semibold rounded-lg text-base"
-                  >
-                    Send
-          </Button>
-                </form>
-              </div>
-            </div>
+
           </div>
         </div>
       </section>
@@ -314,7 +279,7 @@ const CaseStudyDetail = () => {
                   </div>
                 </div>
               </div>
-            </div>
+        </div>
 
             {/* Outcome */}
             <div className="bg-gray-900 p-8 lg:p-12 min-h-[400px]">
@@ -323,7 +288,7 @@ const CaseStudyDetail = () => {
                 <div className="mb-8">
                   <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
                     The outcome<span className="text-primary">.</span>
-                  </h2>
+          </h2>
                 </div>
                 
                 {/* Flexible Content Section */}
@@ -348,8 +313,31 @@ const CaseStudyDetail = () => {
                   </div>
                 </div>
               </div>
-            </div>
+                  </div>
+                  
+          </div>
+        </div>
+      </section>
 
+      {/* CTA Section */}
+      <section className="bg-gradient-to-br from-gray-900 via-black to-gray-800 py-16 px-4">
+        <div className="container mx-auto max-w-4xl text-center">
+          <div className="space-y-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
+              Facing similar challenges to {caseStudy.client}?
+            </h2>
+            <p className="text-xl md:text-2xl text-primary font-semibold">
+              See how we can help.
+            </p>
+            <div className="mt-8">
+              <Button 
+                size="lg" 
+                onClick={scrollToContact}
+                className="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-lg text-lg font-semibold transition-colors duration-200"
+              >
+                Schedule a Call
+              </Button>
+            </div>
           </div>
         </div>
       </section>

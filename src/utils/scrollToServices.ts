@@ -53,14 +53,14 @@ export function handleHashNavigation(): void {
   
   // Check if we have a hash for contact
   if (window.location.hash === "#contact") {
-    // Small delay to ensure the page is fully loaded
+    // Longer delay to ensure all components are mounted and contact section is available
     window.setTimeout(() => {
       scrollToContactElement();
-    }, 100);
+    }, 500);
   }
 }
 
-function scrollToContactElement(): void {
+function scrollToContactElement(retryCount: number = 0): void {
   const targetElement: HTMLElement | null = document.getElementById("contact");
 
   if (targetElement) {
@@ -77,5 +77,13 @@ function scrollToContactElement(): void {
       targetElement.scrollIntoView();
       (targetElement as HTMLElement).focus?.();
     }
+  } else if (retryCount < 3) {
+    // If element not found, retry up to 3 times with increasing delay
+    window.setTimeout(() => {
+      scrollToContactElement(retryCount + 1);
+    }, 300 * (retryCount + 1));
+  } else {
+    // Final fallback: use hash navigation
+    window.location.hash = "#contact";
   }
 }
