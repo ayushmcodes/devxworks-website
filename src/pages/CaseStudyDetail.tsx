@@ -243,6 +243,81 @@ const CaseStudyDetail = () => {
         </div>
       </section>
 
+      {/* Problem-Solution-Outcome Section */}
+      <section className="py-16 px-4">
+        <div className="container mx-auto max-w-6xl">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-0">
+            
+            {/* Problem Statement */}
+            <div className="bg-gray-50 p-8 lg:p-12 flex flex-col justify-center min-h-[400px]">
+              <div>
+                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8 leading-tight">
+                  The challenge<span className="text-primary">.</span>
+                </h2>
+                <div className="space-y-6">
+                  <p className="text-lg text-gray-700 leading-relaxed">
+                    {caseStudy.overview}
+                  </p>
+                  <div className="space-y-3">
+                    {caseStudy.challenges.slice(0, 3).map((challenge, index) => (
+                      <div key={index} className="flex items-start gap-3">
+                        <div className="w-2 h-2 bg-gray-400 rounded-full mt-2.5 flex-shrink-0" />
+                        <span className="text-gray-700">{challenge}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Our Solution */}
+            <div className="bg-gradient-to-br from-primary to-primary/90 p-8 lg:p-12 flex flex-col justify-center min-h-[400px]">
+              <div>
+                <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 leading-tight">
+                  The solution<span className="text-white/80">.</span>
+                </h2>
+                <div className="space-y-6">
+                  <p className="text-lg text-white/90 leading-relaxed">
+                    {caseStudy.client} chose our expertise to tackle these complex challenges. We provided a comprehensive approach combining cutting-edge technology with proven methodologies.
+                  </p>
+                  <div className="space-y-3">
+                    {caseStudy.approach.slice(0, 3).map((approach, index) => (
+                      <div key={index} className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-white mt-0.5 flex-shrink-0" />
+                        <span className="text-white/90">{approach}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Outcome */}
+            <div className="bg-gray-900 p-8 lg:p-12 flex flex-col justify-center min-h-[400px]">
+              <div>
+                <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 leading-tight">
+                  The outcome<span className="text-primary">.</span>
+                </h2>
+                <div className="space-y-6">
+                  <p className="text-lg text-gray-300 leading-relaxed">
+                    Our collaboration delivered exceptional results, exceeding expectations and establishing a foundation for continued growth and success.
+                  </p>
+                  <div className="space-y-4">
+                    {caseStudy.results.slice(0, 3).map((result, index) => (
+                      <div key={index} className="flex items-start gap-3">
+                        <TrendingUp className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                        <span className="text-white font-medium">{result}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
       {/* Main Content */}
       <section className="py-16 px-4">
         <div className="container mx-auto max-w-4xl space-y-16">
