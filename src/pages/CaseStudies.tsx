@@ -23,7 +23,7 @@ const CaseStudies = () => {
     },
     {
       id: "netflix",
-      company: "Netflix",
+      company: "Slice",
       image: sliceImg,
       title: "Streaming Infrastructure",
       description: "Scalable video streaming and content delivery platform"
@@ -82,11 +82,11 @@ const CaseStudies = () => {
                   className={`group relative overflow-hidden rounded-2xl bg-card cursor-pointer transition-all duration-300 hover:shadow-[0_0_0_4px_white,_0_0_0_8px_black] break-inside-avoid mb-4 ${getCardHeight(index)}`}
                 >
                   {/* Background Image Container */}
-                  <div className="w-full h-full overflow-hidden bg-white/95 flex items-center justify-center p-6">
+                  <div className="w-full h-full overflow-hidden">
                     <img 
                       src={work.image}
                       alt={`${work.company} project`}
-                      className="max-w-full max-h-32 w-auto h-auto object-contain"
+                      className={`w-full h-full ${work.id === 'razorpay' || work.id === 'jpmorgan' ? 'object-contain' : 'object-cover scale-90'}`}
                     />
                     {/* Overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/20" />
