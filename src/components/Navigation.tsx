@@ -1,15 +1,9 @@
 import { Button } from "@/components/ui/button";
 import devxLogo from "@/assets/devxlogo.png";
 import { scrollToContact } from "@/utils/scrollToContact";
+import { scrollToServices } from "@/utils/scrollToServices";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useState } from "react";
-
-const scrollToServices = () => {
-  const element = document.querySelector('#services');
-  if (element) {
-    element.scrollIntoView({ behavior: 'smooth' });
-  }
-};
 
 const Navigation = () => {
   const navigate = useNavigate();
@@ -57,7 +51,7 @@ const Navigation = () => {
           {/* Navigation Links */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
-              <Button variant="nav" onClick={(e) => { e.preventDefault(); scrollToServices(); }}>
+              <Button variant="nav" onClick={scrollToServices}>
                 Our Services
               </Button>
               <Button variant="nav" asChild>
@@ -94,8 +88,7 @@ const Navigation = () => {
               <Button 
                 variant="ghost" 
                 className="w-full justify-start" 
-                onClick={(e) => {
-                  e.preventDefault();
+                onClick={() => {
                   scrollToServices();
                   closeMobileMenu();
                 }}

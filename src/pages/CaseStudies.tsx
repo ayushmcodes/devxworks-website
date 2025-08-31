@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import akamaiImg from "@/assets/akamai-logo-og-default.avif";
@@ -22,7 +23,7 @@ const CaseStudies = () => {
       description: "Built high-performance content delivery and security solutions"
     },
     {
-      id: "netflix",
+      id: "slice",
       company: "Slice",
       image: sliceImg,
       title: "Streaming Infrastructure",
@@ -77,9 +78,10 @@ const CaseStudies = () => {
               };
 
               return (
-                <div 
+                <Link
                   key={work.id}
-                  className={`group relative overflow-hidden rounded-2xl bg-card cursor-pointer transition-all duration-300 hover:shadow-[0_0_0_4px_white,_0_0_0_8px_black] break-inside-avoid mb-4 ${getCardHeight(index)}`}
+                  to={`/case-studies/${work.id}`}
+                  className={`group relative overflow-hidden rounded-2xl bg-card cursor-pointer transition-all duration-300 hover:shadow-[0_0_0_4px_white,_0_0_0_8px_black] break-inside-avoid mb-4 block ${getCardHeight(index)}`}
                 >
                   {/* Background Image Container */}
                   <div className="w-full h-full overflow-hidden">
@@ -105,12 +107,12 @@ const CaseStudies = () => {
                     </div>
 
                     {/* CTA - Always visible */}
-                    <div className="flex items-center text-white group-hover:text-black transition-colors">
-                      <span className="font-bold mr-2 text-lg">Case study</span>
-                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    <div className="flex items-center">
+                      <span className="font-bold mr-2 text-lg text-white">Case study</span>
+                      <ArrowRight className="w-5 h-5 text-white group-hover:text-black group-hover:translate-x-1 transition-all" />
                     </div>
                   </div>
-                </div>
+                </Link>
               );
             })}
           </div>
