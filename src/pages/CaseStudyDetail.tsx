@@ -36,14 +36,11 @@ const CaseStudyDetail = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       
-      {/* Hero Section with Background Image */}
+      {/* Hero Section */}
       <section 
-        className="relative min-h-screen flex items-center justify-start px-4 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url(${caseStudy.image})`,
-        }}
+        className="relative min-h-[50vh] flex items-start justify-start px-4 pt-20 bg-gradient-to-br from-gray-900 via-black to-gray-800"
       >
-        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-black/20" />
         
         {/* Content Container */}
         <div className="relative z-10 container mx-auto max-w-7xl">
@@ -102,6 +99,43 @@ const CaseStudyDetail = () => {
                     Send
                   </Button>
                 </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Summary Section */}
+      <section className="py-20 px-4 bg-background">
+        <div className="container mx-auto max-w-7xl">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Left Content - Summary */}
+            <div className="space-y-8">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground">
+                The summary<span className="text-primary">.</span>
+              </h2>
+              <div className="space-y-6">
+                <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
+                  {caseStudy.overview}
+                </p>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  {caseStudy.description}
+                </p>
+              </div>
+            </div>
+
+            {/* Right Content - Company Logo/Image */}
+            <div className="flex justify-center lg:justify-end">
+              <div className="w-full max-w-md lg:max-w-lg">
+                <img 
+                  src={caseStudy.image}
+                  alt={`${caseStudy.client} logo`}
+                  className={`w-full h-auto ${
+                    caseStudy.id === 'razorpay' || caseStudy.id === 'jpmorgan' 
+                      ? 'object-contain max-h-48' 
+                      : 'object-contain max-h-64 rounded-2xl'
+                  }`}
+                />
               </div>
             </div>
           </div>
