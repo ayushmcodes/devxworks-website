@@ -2,10 +2,10 @@ import { useEffect } from "react";
 import { ArrowRight } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import devopsCloud from "@/assets/devops-cloud.jpg";
-import fintechUpi from "@/assets/fintech-upi.jpg";
-import backendInfrastructure from "@/assets/backend-infrastructure.jpg";
-import aiSolutions from "@/assets/ai-solutions.jpg";
+import akamaiImg from "@/assets/akamai-logo-og-default.avif";
+import jpmorganImg from "@/assets/jpmorgan-img.png";
+import razorpayImg from "@/assets/razorpayimg.jpeg";
+import sliceImg from "@/assets/sliceimg.webp";
 
 const CaseStudies = () => {
   useEffect(() => {
@@ -17,28 +17,28 @@ const CaseStudies = () => {
     {
       id: "akamai",
       company: "Akamai",
-      image: devopsCloud,
+      image: akamaiImg,
       title: "Global CDN Infrastructure Platform",
       description: "Built high-performance content delivery and security solutions"
     },
     {
       id: "netflix",
       company: "Netflix",
-      image: aiSolutions,
+      image: sliceImg,
       title: "Streaming Infrastructure",
       description: "Scalable video streaming and content delivery platform"
     },
     {
       id: "razorpay",
       company: "Razorpay", 
-      image: fintechUpi,
+      image: razorpayImg,
       title: "Payment Gateway & Financial Services",
       description: "Developed secure payment processing and financial management tools"
     },
     {
       id: "jpmorgan",
       company: "JPMorgan",
-      image: backendInfrastructure, 
+      image: jpmorganImg, 
       title: "Enterprise Banking Solutions",
       description: "Created robust financial systems and trading platforms"
     }
@@ -89,7 +89,7 @@ const CaseStudies = () => {
                       className="max-w-full max-h-32 w-auto h-auto object-contain"
                     />
                     {/* Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/20" />
                   </div>
 
                   {/* Content Overlay */}
