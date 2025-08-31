@@ -54,16 +54,16 @@ const CaseStudies = () => {
           {/* Main Heading */}
           <div className="mb-8">
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight">
-              Over 10 Years of
+              Driven by Detail
               <br />
-              Over Delivering<span className="text-primary">.</span>
+              Focused on Results<span className="text-primary">.</span>
             </h1>
           </div>
           
           {/* Stats */}
           <div className="mb-16">
             <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-4xl leading-relaxed">
-              500+ active clients with an average relationship of over 3 years. And a 96% retention rate.
+            Every project is built with precision and a focus on results that actually move your business forward.
             </p>
           </div>
 
