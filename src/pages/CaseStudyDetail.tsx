@@ -248,7 +248,7 @@ const CaseStudyDetail = () => {
         <div className="container mx-auto max-w-6xl">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-0">
             
-            {/* Problem Statement */}
+                            {/* Problem Statement */}
             <div className="bg-gray-50 p-8 lg:p-12 min-h-[400px]">
               <div className="h-full flex flex-col">
                 {/* Fixed Header Section */}
@@ -259,7 +259,7 @@ const CaseStudyDetail = () => {
                 </div>
                 
                 {/* Flexible Content Section */}
-                <div className="flex-1 flex flex-col justify-center space-y-6">
+                <div className="flex-1 space-y-6">
                   <p className="text-lg text-gray-700 leading-relaxed">
                     {caseStudy.id === 'akamai' ? 
                       'Akamai\'s existing infrastructure was struggling under exponential traffic growth, requiring a complete architectural overhaul of their CDN platform while maintaining zero downtime across 300,000+ global servers.' :
@@ -293,7 +293,7 @@ const CaseStudyDetail = () => {
                 </div>
                 
                 {/* Flexible Content Section */}
-                <div className="flex-1 flex flex-col justify-center space-y-6">
+                <div className="flex-1 space-y-6">
                   <p className="text-lg text-white/90 leading-relaxed">
                     {caseStudy.id === 'akamai' ? 
                       'We deployed a specialized team of 12 distributed systems engineers to architect a next-generation edge computing platform, implementing advanced caching algorithms, real-time analytics, and automated threat detection systems across their global infrastructure.' :
@@ -327,7 +327,7 @@ const CaseStudyDetail = () => {
                 </div>
                 
                 {/* Flexible Content Section */}
-                <div className="flex-1 flex flex-col justify-center space-y-6">
+                <div className="flex-1 space-y-6">
                   <p className="text-lg text-gray-300 leading-relaxed">
                     {caseStudy.id === 'akamai' ? 
                       'The new infrastructure successfully handles 15% of global internet traffic with 50% improved performance, 99.99% uptime, and advanced security that blocks billions of attacks daily while reducing operational costs by 30%.' :
