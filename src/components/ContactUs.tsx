@@ -98,7 +98,7 @@ const ContactUs = () => {
                   <TabsList className="grid w-full grid-cols-2">
                     <TabsTrigger value="call" className="flex items-center gap-2">
                       <Calendar className="w-4 h-4" />
-                      Book a Call
+                      Book Call
                     </TabsTrigger>
                     <TabsTrigger value="message" className="flex items-center gap-2">
                       <MessageSquare className="w-4 h-4" />
@@ -107,7 +107,7 @@ const ContactUs = () => {
                   </TabsList>
                 </div>
                 
-                <TabsContent value="call" className="p-6">
+                <TabsContent value="call" className="p-6 h-[550px] overflow-hidden">
                   <div className="space-y-4 mb-6">
                     <h3 className="text-xl font-semibold text-foreground">Schedule a call</h3>
                     <p className="text-muted-foreground">
@@ -115,10 +115,10 @@ const ContactUs = () => {
                     </p>
                   </div>
                   
-                  <div className="calendly-container overflow-hidden">
+                  <div className="calendly-container overflow-hidden flex-1">
                     <CalendlyIframe 
                       url={CALENDLY_CONFIG.CONSULTATION_URL}
-                      height={750}
+                      height={380}
                       className="bg-gray-50 rounded-lg"
                     />
                     
@@ -139,7 +139,7 @@ const ContactUs = () => {
                   </div>
                 </TabsContent>
                 
-                <TabsContent value="message" className="p-6">
+                <TabsContent value="message" className="p-6 h-[550px] overflow-auto">
                   <div className="space-y-4 mb-6">
                     <h3 className="text-xl font-semibold text-foreground">Send us a message</h3>
                     <p className="text-muted-foreground">
