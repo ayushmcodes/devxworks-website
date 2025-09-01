@@ -476,7 +476,7 @@ const AboutUs = () => {
                 onClick={scrollToContact}
                 className="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-lg text-lg font-semibold transition-colors duration-200"
               >
-                Start Your Project
+                Schedule a Call
               </Button>
             </div>
           </div>

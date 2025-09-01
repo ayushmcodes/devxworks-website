@@ -62,7 +62,7 @@ const Hero = () => {
               type="button" 
               onClick={scrollToContact}
             >
-              Start Your Project
+              Get Started
             </Button>
           </div>
         </div>
