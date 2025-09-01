@@ -55,14 +55,15 @@ const Hero = () => {
           </p>
           
           {/* CTA Button */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-slide-up">
+          <div className="flex justify-center items-center animate-slide-up">
             <Button 
-              size="xl" 
-              className="bg-primary text-white hover:bg-primary/90 hover:scale-105 transform font-semibold text-xl border-0 shadow-elegant hover:shadow-glow" 
+              size="lg" 
+              variant="outline"
+              className="font-semibold text-lg hover:scale-105 transform transition-all duration-200" 
               type="button" 
               onClick={scrollToContact}
             >
-              Start Your Project
+              Get Started
             </Button>
           </div>
         </div>

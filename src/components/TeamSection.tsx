@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { scrollToContact } from "@/utils/scrollToContact";
+import { QuickScheduleButton } from "./CalendlyComponents";
+import { CALENDLY_CONFIG } from "@/constants/config";
 
 const TeamSection = () => {
   const teamMembers = [
@@ -87,15 +89,25 @@ const TeamSection = () => {
           </h2>
           
           {/* CTA Button */}
-          <Button 
-            className="text-white font-semibold px-12 py-6 rounded-lg hover:opacity-90 transition-opacity text-xl"
-            style={{ 
-              backgroundColor: 'rgb(60, 131, 246)' // Blue color
-            }}
-            onClick={scrollToContact}
-          >
-            Schedule a Call
-          </Button>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <QuickScheduleButton
+              url={CALENDLY_CONFIG.CONSULTATION_URL}
+              text="Schedule a Call"
+              className="text-xl px-12 py-6"
+              prefill={CALENDLY_CONFIG.DEFAULT_PREFILL}
+              utm={{
+                utmCampaign: CALENDLY_CONFIG.UTM_CAMPAIGNS.TEAM_SECTION,
+                utmMedium: 'website'
+              }}
+            />
+            <Button
+              variant="outline"
+              className="text-xl px-12 py-6 font-semibold"
+              onClick={scrollToContact}
+            >
+              Send Message
+            </Button>
+          </div>
         </div>
       </div>
     </section>

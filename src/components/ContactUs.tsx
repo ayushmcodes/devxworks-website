@@ -4,7 +4,11 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useToast } from "@/hooks/use-toast";
+import { Calendar, MessageSquare } from "lucide-react";
+import { CalendlyIframe } from "./CalendlyIframe";
+import { CALENDLY_CONFIG, CONTACT_CONFIG, API_CONFIG } from "@/constants/config";
 import contactPartnership from "@/assets/contact-partnership.jpg";
 
 const ContactUs = () => {
@@ -26,8 +30,8 @@ const ContactUs = () => {
     try {
       // Use appropriate endpoint based on environment
       const apiEndpoint = import.meta.env.DEV 
-        ? '/.netlify/functions/submitClientQuery'  // Local development
-        : 'https://devxworks.com/.netlify/functions/submitClientQuery';  // Production
+        ? API_CONFIG.CONTACT_ENDPOINT.DEV  // Local development
+        : API_CONFIG.CONTACT_ENDPOINT.PROD;  // Production
       
       const response = await fetch(apiEndpoint, {
         method: "POST",
@@ -45,7 +49,7 @@ const ContactUs = () => {
 
       toast({
         title: "Message sent successfully!",
-        description: result.message || "We'll get back to you within 24 hours.",
+        description: result.message || `We'll get back to you within ${CONTACT_CONFIG.RESPONSE_TIME}.`,
       });
 
       // Reset form
@@ -82,22 +86,68 @@ const ContactUs = () => {
               Get in Touch
             </h2>
             <p className="text-xl text-muted-foreground max-w-xl mx-auto">
-              Have a project in mind? Send us a message and we'll get back within 24 hours.
+              Choose how you'd like to connect with us - send a message or book a call directly.
             </p>
           </div>
 
-          {/* Contact Form */}
+          {/* Contact Options */}
           <Card className="bg-card/80 backdrop-blur-sm border-0 shadow-2xl">
-            <CardHeader>
-              <CardTitle className="text-2xl font-semibold text-foreground">
-                Contact Us
-              </CardTitle>
-              <CardDescription className="text-muted-foreground">
-                Fill out the form below and we'll respond as soon as possible.
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-6" netlify name="submitUserQuery">
+            <CardContent className="p-0">
+              <Tabs defaultValue="call" className="w-full">
+                <div className="p-6 pb-0">
+                  <TabsList className="grid w-full grid-cols-2">
+                    <TabsTrigger value="call" className="flex items-center gap-2">
+                      <Calendar className="w-4 h-4" />
+                      Book a Call
+                    </TabsTrigger>
+                    <TabsTrigger value="message" className="flex items-center gap-2">
+                      <MessageSquare className="w-4 h-4" />
+                      Send Message
+                    </TabsTrigger>
+                  </TabsList>
+                </div>
+                
+                <TabsContent value="call" className="p-6">
+                  <div className="space-y-4 mb-6">
+                    <h3 className="text-xl font-semibold text-foreground">Schedule a call</h3>
+                    <p className="text-muted-foreground">
+                      Book a {CONTACT_CONFIG.CONSULTATION_DURATION.toLowerCase()} to discuss your project directly with our team.
+                    </p>
+                  </div>
+                  
+                  <div className="calendly-container overflow-hidden">
+                    <CalendlyIframe 
+                      url={CALENDLY_CONFIG.CONSULTATION_URL}
+                      height={750}
+                      className="bg-gray-50 rounded-lg"
+                    />
+                    
+                    {/* Fallback direct link */}
+                    <div className="mt-4 text-center">
+                      <p className="text-sm text-muted-foreground mb-2">
+                        Prefer to open in a new tab? 
+                      </p>
+                      <a 
+                        href={CALENDLY_CONFIG.CONSULTATION_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-primary hover:text-primary/80 font-medium underline"
+                      >
+                        Open calendar in new tab →
+                      </a>
+                    </div>
+                  </div>
+                </TabsContent>
+                
+                <TabsContent value="message" className="p-6">
+                  <div className="space-y-4 mb-6">
+                    <h3 className="text-xl font-semibold text-foreground">Send us a message</h3>
+                    <p className="text-muted-foreground">
+                      Tell us about your project and we'll get back to you within {CONTACT_CONFIG.RESPONSE_TIME}.
+                    </p>
+                  </div>
+                  
+                  <form onSubmit={handleSubmit} className="space-y-6" data-netlify="true" name="submitUserQuery">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <Label htmlFor="name" className="text-foreground font-medium">
@@ -153,14 +203,16 @@ const ContactUs = () => {
                   />
                 </div>
 
-                <Button 
-                  type="submit" 
-                  disabled={isSubmitting}
-                  className="w-full bg-gradient-primary hover:shadow-glow transition-smooth text-lg py-6"
-                >
-                  {isSubmitting ? "Sending..." : "Send Message"}
-                </Button>
-              </form>
+                    <Button 
+                      type="submit" 
+                      disabled={isSubmitting}
+                      className="w-full bg-gradient-primary hover:shadow-glow transition-smooth text-lg py-6"
+                    >
+                      {isSubmitting ? "Sending..." : "Send Message"}
+                    </Button>
+                  </form>
+                </TabsContent>
+              </Tabs>
             </CardContent>
           </Card>
         </div>

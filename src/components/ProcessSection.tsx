@@ -1,6 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Phone, Users, Rocket } from "lucide-react";
 import { scrollToContact } from "@/utils/scrollToContact";
+import { QuickScheduleButton } from "./CalendlyComponents";
+import { CALENDLY_CONFIG } from "@/constants/config";
 import heroWorkspace from "@/assets/hero-workspace.jpg";
 
 const ProcessSection = () => {
@@ -123,15 +125,25 @@ const ProcessSection = () => {
               
               {/* Button aligned with step content */}
               <div className="flex-1">
-                <Button 
-                  className="text-white font-semibold px-12 py-6 rounded-lg hover:opacity-90 transition-opacity text-xl"
-                  style={{ 
-                    backgroundColor: 'rgb(60, 131, 246)'
-                  }}
-                  onClick={scrollToContact}
-                >
-                  Schedule a Call
-                </Button>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <QuickScheduleButton
+                    url={CALENDLY_CONFIG.CONSULTATION_URL}
+                    text="Schedule a Call"
+                    className="text-xl px-12 py-6"
+                    prefill={CALENDLY_CONFIG.DEFAULT_PREFILL}
+                    utm={{
+                      utmCampaign: CALENDLY_CONFIG.UTM_CAMPAIGNS.PROCESS_SECTION,
+                      utmMedium: 'website'
+                    }}
+                  />
+                  <Button
+                    variant="outline"
+                    className="text-xl px-12 py-6 font-semibold"
+                    onClick={scrollToContact}
+                  >
+                    Send Message
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
