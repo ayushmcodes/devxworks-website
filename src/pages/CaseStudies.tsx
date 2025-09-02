@@ -80,7 +80,7 @@ const CaseStudies = () => {
               return (
                 <Link
                   key={work.id}
-                  to={`/case-studies/${work.id}`}
+                  to={`/our-work/${work.id}`}
                   className={`group relative overflow-hidden rounded-2xl bg-card cursor-pointer transition-all duration-300 hover:shadow-[0_0_0_4px_white,_0_0_0_8px_black] break-inside-avoid mb-4 block ${getCardHeight(index)}`}
                 >
                   {/* Background Image Container */}
@@ -108,7 +108,7 @@ const CaseStudies = () => {
 
                     {/* CTA - Always visible */}
                     <div className="flex items-center">
-                      <span className="font-bold mr-2 text-lg text-white">Case study</span>
+                      <span className="font-bold mr-2 text-lg text-white">Our work</span>
                       <ArrowRight className="w-5 h-5 text-white group-hover:text-black group-hover:translate-x-1 transition-all" />
                     </div>
                   </div>

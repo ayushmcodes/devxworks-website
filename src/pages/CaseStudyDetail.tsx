@@ -20,7 +20,7 @@ const CaseStudyDetail = () => {
   const caseStudy = caseStudies.find(study => study.id === id);
 
   if (!caseStudy) {
-    return <Navigate to="/case-studies" replace />;
+    return <Navigate to="/our-work" replace />;
   }
 
   return (
@@ -45,7 +45,7 @@ const CaseStudyDetail = () => {
                   Home
                 </Link>
                 <ChevronRight className="w-4 h-4 text-white/60" />
-                <Link to="/case-studies" className="text-white/80 hover:text-white transition-colors">
+                <Link to="/our-work" className="text-white/80 hover:text-white transition-colors">
                   Our Work
             </Link>
                 <ChevronRight className="w-4 h-4 text-white/60" />
@@ -55,7 +55,7 @@ const CaseStudyDetail = () => {
               {/* Subtitle */}
               <div className="mb-6">
                 <p className="text-sm tracking-widest uppercase text-white/80 font-semibold">
-                  {caseStudy.client} Case Study - {caseStudy.category}
+                  {caseStudy.client} Our Work - {caseStudy.category}
                 </p>
               </div>
 

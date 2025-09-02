@@ -58,7 +58,7 @@ const Navigation = () => {
                 <Link to="/about">About Us</Link>
               </Button>
               <Button variant="nav" asChild>
-                <Link to="/case-studies">Our Work</Link>
+                <Link to="/our-work">Our Work</Link>
               </Button>
               <Button variant="nav" asChild>
                 <Link to="/blogs">Blogs</Link>
@@ -99,7 +99,7 @@ const Navigation = () => {
                 <Link to="/about" onClick={closeMobileMenu}>About Us</Link>
               </Button>
               <Button variant="ghost" className="w-full justify-start" asChild>
-                <Link to="/case-studies" onClick={closeMobileMenu}>Our Work</Link>
+                <Link to="/our-work" onClick={closeMobileMenu}>Our Work</Link>
               </Button>
               <Button variant="ghost" className="w-full justify-start" asChild>
                 <Link to="/blogs" onClick={closeMobileMenu}>Blogs</Link>
