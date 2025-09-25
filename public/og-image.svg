@@ -1,0 +1,66 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Gradient -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e293b;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#0f172a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e293b;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#60a5fa;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+  
+  <!-- Grid Pattern -->
+  <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+    <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#334155" stroke-width="1" opacity="0.1"/>
+  </pattern>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  
+  <!-- Main Content Container -->
+  <g transform="translate(100, 150)">
+    
+    <!-- Company Name -->
+    <text x="0" y="80" font-family="Arial, sans-serif" font-size="72" font-weight="bold" fill="white">
+      devXworks
+    </text>
+    
+    <!-- Accent Dot -->
+    <circle cx="420" cy="50" r="8" fill="url(#accentGradient)"/>
+    
+    <!-- Tagline -->
+    <text x="0" y="140" font-family="Arial, sans-serif" font-size="32" font-weight="500" fill="#94a3b8">
+      Building the Tech Backbone for Tomorrow's Leaders
+    </text>
+    
+    <!-- Services -->
+    <g transform="translate(0, 200)">
+      <text x="0" y="0" font-family="Arial, sans-serif" font-size="24" font-weight="600" fill="url(#accentGradient)">
+        • MVP Development
+      </text>
+      <text x="0" y="40" font-family="Arial, sans-serif" font-size="24" font-weight="600" fill="url(#accentGradient)">
+        • Backend & Infrastructure
+      </text>
+      <text x="0" y="80" font-family="Arial, sans-serif" font-size="24" font-weight="600" fill="url(#accentGradient)">
+        • DevOps & Cloud Solutions
+      </text>
+    </g>
+    
+  </g>
+  
+  <!-- Decorative Elements -->
+  <g transform="translate(800, 100)">
+    <!-- Code Brackets -->
+    <text x="0" y="100" font-family="monospace" font-size="120" font-weight="300" fill="#1e40af" opacity="0.3">
+      &lt;/&gt;
+    </text>
+  </g>
+  
+  <!-- Bottom Accent Line -->
+  <rect x="0" y="600" width="1200" height="30" fill="url(#accentGradient)" opacity="0.8"/>
+  
+</svg>
