@@ -31,21 +31,14 @@ const Hero = () => {
           {/* Bold Headline */}
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 animate-fade-in leading-tight">
             <span className="block">
-              accelerate your product
+              accelerate your
             </span>
-            <span className="block text-foreground">
-              development with our
+            <span className="block">
+              product development
             </span>
-              <div className="block text-primary text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mt-2 text-center">
-                <div className="h-10 sm:h-12 md:h-14 lg:h-16 flex items-center justify-center">
-                  <div 
-                    className="slide-up-text"
-                    key={currentEngineerType}
-                  >
-                    {engineerTypes[currentEngineerType]}
-                  </div>
-                </div>
-              </div>
+            <span className="block text-primary">
+              from idea to delivery
+            </span>
           </h1>
           
           {/* Subtext */}
