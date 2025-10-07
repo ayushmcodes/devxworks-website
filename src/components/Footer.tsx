@@ -35,7 +35,7 @@ const Footer = () => {
       title: "Contact",
       links: [
         { name: "hello@devxworks.com", href: "mailto:hello@devxworks.com" },
-        { name: "LinkedIn", href: "https://www.linkedin.com/company/devxwork/" },
+        { name: "LinkedIn", href: "https://www.linkedin.com/company/hellodevxworks/" },
       ]
     }
   ];
