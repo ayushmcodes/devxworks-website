@@ -1,4 +1,3 @@
-import devxLogo from "@/assets/devxlogo.png";
 import { Link } from "react-router-dom";
 import { scrollToServices } from "@/utils/scrollToServices";
 
@@ -85,24 +84,19 @@ const Footer = () => {
         </div>
         
         {/* Company Info */}
-        <div className="border-t pt-8 flex flex-col md:flex-row justify-between items-center">
+        <div className="border-t pt-8 flex flex-col md:flex-row justify-between items-center md:items-start">
           <div className="mb-4 md:mb-0 flex flex-col items-center md:items-start">
-            <div className="flex items-center mb-2">
-              <img 
-                src={devxLogo} 
-                alt="devXworks" 
-                className="h-6 w-auto mr-2"
-              />
-              <h2 className="text-lg font-bold text-foreground">
-                devXworks
-              </h2>
+            <div className="mb-3">
+              <span className="text-2xl font-bold text-foreground">
+                dev<span className="text-blue-500">X</span>works
+              </span>
             </div>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm text-muted-foreground text-center md:text-left">
               Building the future, one product at a time.
             </p>
           </div>
           
-          <div className="text-sm text-muted-foreground">
+          <div className="text-sm text-muted-foreground mt-4 md:mt-0">
             © 2025 devXworks. All rights reserved.
           </div>
         </div>

@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button";
-import devxLogo from "@/assets/devxlogo.png";
 import { scrollToContact } from "@/utils/scrollToContact";
 import { scrollToServices } from "@/utils/scrollToServices";
 import { Link, useNavigate, useLocation } from "react-router-dom";
@@ -38,14 +37,9 @@ const Navigation = () => {
             onClick={handleLogoClick}
             className="flex-shrink-0 flex items-center hover:opacity-80 transition-opacity cursor-pointer"
           >
-            <img 
-              src={devxLogo} 
-              alt="devXworks" 
-              className="h-10 w-auto mr-3"
-            />
-            <h1 className="text-2xl font-bold text-foreground">
-              devXworks
-            </h1>
+            <span className="text-2xl font-bold text-foreground">
+              dev<span className="text-blue-500">X</span>works
+            </span>
           </button>
           
           {/* Navigation Links */}

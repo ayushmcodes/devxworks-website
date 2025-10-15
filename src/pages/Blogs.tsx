@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { PenTool, BookOpen, Rss } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import devxLogo from "@/assets/devxlogo.png";
+import devxLogoSvg from "@/assets/devxworks-logo-highlighted-x.svg";
 
 const Blogs = () => {
   useEffect(() => {
@@ -18,13 +18,10 @@ const Blogs = () => {
           {/* Logo */}
           <div className="flex items-center justify-center mb-8">
             <img 
-              src={devxLogo} 
+              src={devxLogoSvg} 
               alt="devXworks" 
-              className="h-12 w-auto mr-3"
+              className="h-12 w-auto"
             />
-            <h1 className="text-2xl font-bold text-foreground">
-              devXworks
-            </h1>
           </div>
 
           {/* Blog Icon */}
