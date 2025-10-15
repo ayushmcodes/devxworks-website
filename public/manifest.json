@@ -1,0 +1,27 @@
+{
+  "name": "devXworks - MVP Development & DevOps Services",
+  "short_name": "devXworks",
+  "description": "Transform your startup ideas into scalable applications. Expert MVP development, backend systems, and DevOps solutions.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3b82f6",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/devxlogo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/devxlogo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "productivity", "developer"],
+  "lang": "en-US",
+  "dir": "ltr"
+}
