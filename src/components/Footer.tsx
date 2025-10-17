@@ -87,9 +87,7 @@ const Footer = () => {
         <div className="border-t pt-8 flex flex-col md:flex-row justify-between items-center md:items-start">
           <div className="mb-4 md:mb-0 flex flex-col items-center md:items-start">
             <div className="mb-3">
-              <span className="text-2xl font-bold text-foreground">
-                <span className="text-blue-500">devXworks</span>
-              </span>
+              <span className="text-2xl font-extrabold text-blue-500">devXworks</span>
             </div>
             <p className="text-sm text-muted-foreground text-center md:text-left">
               Building the future, one product at a time.

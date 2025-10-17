@@ -37,9 +37,7 @@ const Navigation = () => {
             onClick={handleLogoClick}
             className="flex-shrink-0 flex items-center hover:opacity-80 transition-opacity cursor-pointer"
           >
-            <span className="text-2xl font-bold text-foreground">
-              <span className="text-blue-500">devXworks</span>
-            </span>
+            <span className="text-2xl font-extrabold text-blue-500">devXworks</span>
           </button>
           
           {/* Navigation Links */}
