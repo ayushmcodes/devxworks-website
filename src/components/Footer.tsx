@@ -88,7 +88,7 @@ const Footer = () => {
           <div className="mb-4 md:mb-0 flex flex-col items-center md:items-start">
             <div className="mb-3">
               <span className="text-2xl font-bold text-foreground">
-                dev<span className="text-blue-500">X</span>works
+                <span className="text-blue-500">devXworks</span>
               </span>
             </div>
             <p className="text-sm text-muted-foreground text-center md:text-left">

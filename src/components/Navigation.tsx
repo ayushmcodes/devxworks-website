@@ -38,7 +38,7 @@ const Navigation = () => {
             className="flex-shrink-0 flex items-center hover:opacity-80 transition-opacity cursor-pointer"
           >
             <span className="text-2xl font-bold text-foreground">
-              dev<span className="text-blue-500">X</span>works
+              <span className="text-blue-500">devXworks</span>
             </span>
           </button>
           
