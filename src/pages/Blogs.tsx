@@ -15,15 +15,6 @@ const Blogs = () => {
       <Navigation />
       <div className="bg-gradient-to-br from-background to-secondary/20 flex flex-col items-center justify-center px-4 py-16">
         <div className="max-w-2xl mx-auto text-center space-y-8">
-          {/* Logo */}
-          <div className="flex items-center justify-center mb-8">
-            <img 
-              src={devxLogoSvg} 
-              alt="devXworks" 
-              className="h-12 w-auto"
-            />
-          </div>
-
           {/* Blog Icon */}
           <div className="relative">
             <div className="w-32 h-32 mx-auto bg-primary/10 rounded-full flex items-center justify-center">
