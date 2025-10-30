@@ -7,6 +7,7 @@ import { ArrowLeft, ArrowRight, CheckCircle, Target, Lightbulb, TrendingUp, Code
 import { Link, useParams, Navigate } from "react-router-dom";
 import { caseStudies } from "@/data/caseStudies";
 import Navigation from "@/components/Navigation";
+import JsonLd from "@/components/JsonLd";
 import Footer from "@/components/Footer";
 import { scrollToContact } from "@/utils/scrollToContact";
 
@@ -25,6 +26,59 @@ const CaseStudyDetail = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <JsonLd
+        id="cs-article-jsonld"
+        json={{
+          "@context": "https://schema.org",
+          "@type": "Article",
+          headline: caseStudy.title.split(' – ')[1] || caseStudy.title,
+          name: caseStudy.title,
+          description: caseStudy.description,
+          about: caseStudy.category,
+          image: typeof window !== 'undefined' ? new URL(caseStudy.image, window.location.origin).toString() : caseStudy.image,
+          author: {
+            "@type": "Organization",
+            name: "devXworks"
+          },
+          publisher: {
+            "@type": "Organization",
+            name: "devXworks",
+            logo: {
+              "@type": "ImageObject",
+              url: typeof window !== 'undefined' ? new URL('/devxlogo.png', window.location.origin).toString() : '/devxlogo.png'
+            }
+          },
+          mainEntityOfPage: typeof window !== 'undefined' ? window.location.href : undefined
+        }}
+      />
+
+      <JsonLd
+        id="cs-breadcrumb-jsonld"
+        json={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              name: "Home",
+              item: typeof window !== 'undefined' ? new URL('/', window.location.origin).toString() : '/'
+            },
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: "Our Work",
+              item: typeof window !== 'undefined' ? new URL('/our-work', window.location.origin).toString() : '/our-work'
+            },
+            {
+              "@type": "ListItem",
+              position: 3,
+              name: caseStudy.client,
+              item: typeof window !== 'undefined' ? window.location.href : undefined
+            }
+          ]
+        }}
+      />
       <Navigation />
       
       {/* Hero Section */}
