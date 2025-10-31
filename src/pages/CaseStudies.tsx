@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import JsonLd from "@/components/JsonLd";
 import akamaiImg from "@/assets/akamai-logo-og-default.avif";
 import jpmorganImg from "@/assets/jpmorgan-img.png";
 import razorpayImg from "@/assets/razorpayimg.jpeg";
@@ -47,6 +48,43 @@ const CaseStudies = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <JsonLd
+        id="ourwork-collectionpage-jsonld"
+        json={{
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: "Our Work | devXworks",
+          url: typeof window !== 'undefined' ? new URL('/our-work', window.location.origin).toString() : undefined
+        }}
+      />
+
+      <JsonLd
+        id="ourwork-breadcrumb-jsonld"
+        json={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: typeof window !== 'undefined' ? new URL('/', window.location.origin).toString() : '/' },
+            { "@type": "ListItem", position: 2, name: "Our Work", item: typeof window !== 'undefined' ? new URL('/our-work', window.location.origin).toString() : '/our-work' }
+          ]
+        }}
+      />
+
+      <JsonLd
+        id="ourwork-itemlist-jsonld"
+        json={{
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          itemListElement: (typeof window !== 'undefined'
+            ? [
+                { "@type": "ListItem", position: 1, url: new URL('/our-work/akamai', window.location.origin).toString() },
+                { "@type": "ListItem", position: 2, url: new URL('/our-work/slice', window.location.origin).toString() },
+                { "@type": "ListItem", position: 3, url: new URL('/our-work/razorpay', window.location.origin).toString() },
+                { "@type": "ListItem", position: 4, url: new URL('/our-work/jpmorgan', window.location.origin).toString() }
+              ]
+            : undefined)
+        }}
+      />
       <Navigation />
       
       {/* Hero Section */}

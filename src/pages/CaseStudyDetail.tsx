@@ -45,7 +45,7 @@ const CaseStudyDetail = () => {
             name: "devXworks",
             logo: {
               "@type": "ImageObject",
-              url: typeof window !== 'undefined' ? new URL('/devxlogo.png', window.location.origin).toString() : '/devxlogo.png'
+              url: typeof window !== 'undefined' ? new URL('/favicon.ico', window.location.origin).toString() : '/favicon.ico'
             }
           },
           mainEntityOfPage: typeof window !== 'undefined' ? window.location.href : undefined

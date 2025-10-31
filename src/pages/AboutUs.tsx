@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
+import JsonLd from "@/components/JsonLd";
 import Footer from "@/components/Footer";
 import { scrollToContact } from "@/utils/scrollToContact";
 import { useScrollAnimation, scrollAnimationVariants } from "@/hooks/use-scroll-animation";
@@ -49,6 +50,28 @@ const AboutUs = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <JsonLd
+        id="aboutus-webpage-jsonld"
+        json={{
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          name: "About Us | devXworks",
+          description: "About devXworks — our story, mission, vision, and approach.",
+          url: typeof window !== 'undefined' ? new URL('/about', window.location.origin).toString() : undefined
+        }}
+      />
+
+      <JsonLd
+        id="aboutus-breadcrumb-jsonld"
+        json={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: typeof window !== 'undefined' ? new URL('/', window.location.origin).toString() : '/' },
+            { "@type": "ListItem", position: 2, name: "About Us", item: typeof window !== 'undefined' ? new URL('/about', window.location.origin).toString() : '/about' }
+          ]
+        }}
+      />
       <Navigation />
       
       {/* Hero Section */}

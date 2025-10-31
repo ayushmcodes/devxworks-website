@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { PenTool, BookOpen, Rss } from "lucide-react";
 import Navigation from "@/components/Navigation";
+import JsonLd from "@/components/JsonLd";
 import Footer from "@/components/Footer";
 import devxLogoSvg from "@/assets/devxworks-logo-highlighted-x.svg";
 
@@ -12,6 +13,28 @@ const Blogs = () => {
   }, []);
   return (
     <div className="min-h-screen">
+      <JsonLd
+        id="blogs-webpage-jsonld"
+        json={{
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          name: "Blog | devXworks",
+          description: "devXworks blog — articles, technical insights, and company updates.",
+          url: typeof window !== 'undefined' ? new URL('/blog', window.location.origin).toString() : undefined
+        }}
+      />
+
+      <JsonLd
+        id="blogs-breadcrumb-jsonld"
+        json={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: typeof window !== 'undefined' ? new URL('/', window.location.origin).toString() : '/' },
+            { "@type": "ListItem", position: 2, name: "Blog", item: typeof window !== 'undefined' ? new URL('/blog', window.location.origin).toString() : '/blog' }
+          ]
+        }}
+      />
       <Navigation />
       <div className="bg-gradient-to-br from-background to-secondary/20 flex flex-col items-center justify-center px-4 py-16">
         <div className="max-w-2xl mx-auto text-center space-y-8">
